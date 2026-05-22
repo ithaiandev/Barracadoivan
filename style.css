@@ -204,6 +204,7 @@ section { padding: 5.5rem 1.5rem; }
 .galeria-inner .section-label { color: var(--laranja-vivo); }
 .galeria-inner .divider { background: var(--laranja-vivo); }
 .gallery-grid { display:grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 220px 220px; gap:12px; margin-top:2rem; }
+.gallery-2col { grid-template-columns: 2fr 1fr; }
 .gallery-item { border-radius:14px; overflow:hidden; background:rgba(255,255,255,0.08); }
 .gallery-featured { grid-row: span 2; }
 .insta-promo { margin-top:2rem; color:rgba(245,230,200,0.75); font-size:1rem; }
@@ -345,8 +346,10 @@ footer strong { color:var(--areia); }
   .sobre-cols { grid-template-columns: 1fr; gap: 1.5rem; }
   .contato-inner { grid-template-columns: 1fr; gap: 1.5rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-2col { grid-template-columns: 2fr 1fr; }
   .gallery-item { height: 180px; }
   .gallery-item.gallery-featured { grid-column: span 2; height: 260px; }
+  .gallery-2col .gallery-item.gallery-featured { grid-column: span 1; }
   .contato-mapa { height: 260px; }
   .preco-table th, .preco-table td { padding: 0.55rem 0.65rem; font-size: 0.82rem; }
   .cardapio-img-wrap { max-width: 100%; margin-bottom: 1.2rem; }
@@ -375,6 +378,7 @@ footer strong { color:var(--areia); }
   .btn-excursao { width: 100%; max-width: 300px; justify-content: center; text-align: center; }
 
   .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-2col { grid-template-columns: 1fr; }
   .gallery-item { height: 185px; }
   .gallery-item.gallery-featured { grid-column: span 1; height: 220px; }
 

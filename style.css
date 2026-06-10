@@ -105,6 +105,7 @@ nav {
   position: sticky; top: 0; z-index: 100;
   background: var(--mar-profundo);
   display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap;
   box-shadow: 0 2px 14px rgba(0,0,0,0.35);
 }
 .nav-primary-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; }
@@ -462,3 +463,27 @@ details[open] > summary > span:last-child { transform: rotate(45deg); }
 @media(max-width:600px) {
   .footer-links { gap: 0.5rem 1rem; }
 }
+
+/* ══════════════════════════════════════════════
+   NAV — TODOS OS LINKS SEMPRE VISÍVEIS
+   Sem hamburger, dropdown vira linha normal
+══════════════════════════════════════════════ */
+.nav-toggle { display: none !important; }
+.nav-more { border-left: none !important; position: static !important; flex: 1 !important; display: flex !important; flex-wrap: wrap !important; align-items: center !important; justify-content: center !important; }
+.nav-dropdown,
+.nav-dropdown.open {
+  display: flex !important;
+  position: static !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+  border-top: none !important;
+  z-index: auto !important;
+}
+.nav-dropdown a { border-bottom: none !important; white-space: nowrap; }

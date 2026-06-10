@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cardápio | Barraca do Ivan – Frutos do Mar na Praia do Barro Vermelho, Paulino Neves MA</title>
 <meta name="description" content="Cardápio completo da Barraca do Ivan na Praia do Barro Vermelho, Paulino Neves – MA. Frutos do mar frescos: camarão, peixe frito, lagosta, petiscos e bebidas. Faça seu pedido pelo WhatsApp!">
-<meta name="keywords" content="cardápio Barraca do Ivan, frutos do mar Paulino Neves, camarão Praia Barro Vermelho, peixe frito Maranhão, onde comer Paulino Neves, restaurante frutos do mar Barreirinhas, petiscos praia Maranhão">
+<meta name="keywords" content="cardápio Barraca do Ivan, frutos do mar Paulino Neves, camarão Praia Barro Vermelho, peixe frito Maranhão, onde comer Paulino Neves, restaurante frutos do mar Barreirinhas, restaurante perto de barreirinhas, petiscos praia Maranhão, restaurante na praia maranhão, cardápio restaurante paulino neves, onde comer perto de barreirinhas, frutos do mar pequenos lençóis">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="Barraca do Ivan">
 <link rel="canonical" href="https://barracadoivan.com/cardapio.html">
@@ -69,6 +69,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
@@ -85,9 +86,12 @@
 <header class="hero" style="min-height:55vh;padding:3rem 1.5rem 7rem;">
   <div class="bubble b1"></div><div class="bubble b2"></div>
   <div class="bubble b3"></div><div class="bubble b4"></div>
-  <div class="hero-bg" style="background-image:url('Imagens/camarao.PNG');opacity:0.25;"></div>
+  <div class="hero-bg" style="background-image:url('Imagens/camarao.webp');opacity:0.25;"></div>
   <div class="hero-content">
-    <img src="Imagens/logo.jpeg" alt="Logo Barraca do Ivan" class="logo-img" style="width:110px;height:110px;">
+    <picture>
+      <source srcset="Imagens/logo.webp" type="image/webp">
+      <img src="Imagens/logo.jpeg" alt="Logo Barraca do Ivan" class="logo-img" style="width:110px;height:110px;" width="110" height="110" fetchpriority="high">
+    </picture>
     <h1 class="hero-title" style="font-size:clamp(2rem,7vw,4.5rem);">Nosso Cardápio</h1>
     <p class="hero-praia">🦐 Frutos do Mar Frescos &mdash; Paulino Neves MA</p>
     <p class="hero-tagline">&ldquo;Ingredientes frescos do litoral maranhense todos os dias&rdquo;</p>
@@ -110,6 +114,8 @@
     <button class="nav-toggle" aria-label="Mais páginas">&#9776;</button>
     <div class="nav-dropdown" id="navDropdown">
       <a href="index.html">Início</a>
+      <a href="onde-comer-barreirinhas.html">Onde Comer</a>
+      <a href="restaurante-paulino-neves.html">Restaurante</a>
       <a href="excursoes.html">Excursões</a>
       <a href="index.html#contato">Contato</a>
       <a href="index.html#faq">FAQ</a>
@@ -129,14 +135,20 @@
     </div>
 
     <div class="tab-panel active" id="tab-refeicoes">
-      <div class="cardapio-img-wrap" onclick="openLightbox(this.querySelector('img').src)">
-        <img src="Imagens/refeicoes.jpeg" alt="Cardápio de refeições da Barraca do Ivan – frutos do mar e pratos da culinária maranhense na Praia do Barro Vermelho" loading="lazy">
+      <div class="cardapio-img-wrap" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src)">
+        <picture>
+          <source srcset="Imagens/refeicoes.webp" type="image/webp">
+          <img src="Imagens/refeicoes.jpeg" alt="Cardápio de refeições da Barraca do Ivan – frutos do mar e pratos da culinária maranhense na Praia do Barro Vermelho" loading="lazy" width="800" height="600">
+        </picture>
       </div>
     </div>
 
     <div class="tab-panel" id="tab-petiscos">
-      <div class="cardapio-img-wrap" onclick="openLightbox(this.querySelector('img').src)">
-        <img src="Imagens/petiscos.jpeg" alt="Cardápio de petiscos e bebidas geladas da Barraca do Ivan na Praia do Barro Vermelho" loading="lazy">
+      <div class="cardapio-img-wrap" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src)">
+        <picture>
+          <source srcset="Imagens/petiscos.webp" type="image/webp">
+          <img src="Imagens/petiscos.jpeg" alt="Cardápio de petiscos e bebidas geladas da Barraca do Ivan na Praia do Barro Vermelho" loading="lazy" width="1000" height="708">
+        </picture>
       </div>
     </div>
 
@@ -154,21 +166,30 @@
     <div class="divider"></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:1rem;">
       <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-        <img src="Imagens/camarao.PNG" alt="Camarão fresco grelhado – especialidade da Barraca do Ivan na Praia do Barro Vermelho" style="width:100%;height:180px;object-fit:cover;" loading="lazy">
+        <picture>
+          <source srcset="Imagens/camarao.webp" type="image/webp">
+          <img src="Imagens/camarao.PNG" alt="Camarão fresco grelhado – especialidade da Barraca do Ivan na Praia do Barro Vermelho" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
+        </picture>
         <div style="padding:1rem;">
           <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.3rem;">Camarão Fresco</h3>
           <p style="color:var(--texto-suave);font-size:0.85rem;line-height:1.6;">Camarão fresco grelhado ou frito, capturado no litoral maranhense. A especialidade da casa!</p>
         </div>
       </div>
       <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-        <img src="Imagens/peixefrito.PNG" alt="Peixe frito fresco – culinária maranhense na Barraca do Ivan" style="width:100%;height:180px;object-fit:cover;" loading="lazy">
+        <picture>
+          <source srcset="Imagens/peixefrito.webp" type="image/webp">
+          <img src="Imagens/peixefrito.PNG" alt="Peixe frito fresco – culinária maranhense na Barraca do Ivan" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
+        </picture>
         <div style="padding:1rem;">
           <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.3rem;">Peixe Frito</h3>
           <p style="color:var(--texto-suave);font-size:0.85rem;line-height:1.6;">Peixe fresco frito na hora, com acompanhamentos da culinária maranhense tradicional.</p>
         </div>
       </div>
       <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-        <img src="Imagens/carnedesol.PNG" alt="Carne de sol – prato nordestino servido na Barraca do Ivan" style="width:100%;height:180px;object-fit:cover;" loading="lazy">
+        <picture>
+          <source srcset="Imagens/carnedesol.webp" type="image/webp">
+          <img src="Imagens/carnedesol.PNG" alt="Carne de sol – prato nordestino servido na Barraca do Ivan" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
+        </picture>
         <div style="padding:1rem;">
           <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.3rem;">Carne de Sol</h3>
           <p style="color:var(--texto-suave);font-size:0.85rem;line-height:1.6;">Prato clássico do Nordeste, preparado com a receita tradicional maranhense e acompanhamentos frescos.</p>
@@ -209,6 +230,8 @@
     <a href="praia-do-barro-vermelho.html">Praia do Barro Vermelho</a>
     <a href="cardapio.html">Cardápio</a>
     <a href="excursoes.html">Excursões</a>
+    <a href="onde-comer-barreirinhas.html">Onde Comer</a>
+    <a href="restaurante-paulino-neves.html">Restaurante Paulino Neves</a>
     <a href="como-chegar-paulino-neves.html">Como Chegar</a>
     <a href="index.html#faq">FAQ</a>
     <a href="index.html#contato">Contato</a>

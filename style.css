@@ -14,6 +14,8 @@
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'Lato', sans-serif; background: var(--branco); color: var(--texto); overflow-x: hidden; }
+picture { display: block; }
+picture > img { display: block; }
 
 /* HERO */
 .hero {
@@ -342,14 +344,15 @@ footer strong { color:var(--areia); }
    RESPONSIVO — TABLET (≤768px)
 ══════════════════════════════════════════════ */
 @media(max-width:768px) {
-  section { padding: 4rem 1.2rem; }
+  section { padding: 4rem 1.2rem !important; }
   .sobre-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+  .sobre-img-wrap { order: -1; }
   .contato-inner { grid-template-columns: 1fr; gap: 1.5rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .gallery-2col { grid-template-columns: 2fr 1fr; }
   .gallery-item { height: 180px; }
   .gallery-item.gallery-featured { grid-column: span 2; height: 260px; }
-  .gallery-2col .gallery-item.gallery-featured { grid-column: span 1; }
+  .gallery-2col .gallery-item.gallery-featured { grid-column: span 2; height: 220px; }
   .contato-mapa { height: 260px; }
   .preco-table th, .preco-table td { padding: 0.55rem 0.65rem; font-size: 0.82rem; }
   .cardapio-img-wrap { max-width: 100%; margin-bottom: 1.2rem; }
@@ -369,7 +372,7 @@ footer strong { color:var(--areia); }
   .b4 { width: 100px; height: 100px; }
   .b2, .b3 { display: none; }
 
-  section { padding: 3.5rem 1rem; }
+  section { padding: 3.5rem 1rem !important; }
 
   .cardapio-img-wrap { border-radius: 10px; margin-bottom: 1rem; }
   .menu-tabs { gap: 0.5rem; }
@@ -394,4 +397,43 @@ footer strong { color:var(--areia); }
   footer { padding: 2rem 1rem; }
   .footer-links { gap: 0.75rem; font-size: 0.78rem; }
   .footer-links a { font-size: 0.78rem; }
+}
+
+/* ══════════════════════════════════════════════
+   DETAILS / FAQ — CROSS-BROWSER + ANIMAÇÃO
+══════════════════════════════════════════════ */
+summary::-webkit-details-marker { display: none; }
+summary::marker { display: none; }
+summary { cursor: pointer; list-style: none; }
+details > summary > span:last-child {
+  display: inline-block;
+  transition: transform 0.25s ease;
+  line-height: 1;
+}
+details[open] > summary > span:last-child { transform: rotate(45deg); }
+
+/* ══════════════════════════════════════════════
+   PICTURE ELEMENTS — FIX IMAGE WRAPPERS
+══════════════════════════════════════════════ */
+.gallery-item picture { width: 100%; height: 100%; }
+.sobre-img-wrap picture { width: 100%; }
+.cardapio-img-wrap picture { width: 100%; }
+.prato-card picture { width: 100%; }
+
+/* ══════════════════════════════════════════════
+   NAV MOBILE — EXTRA PEQUENO (≤360px)
+══════════════════════════════════════════════ */
+@media(max-width:360px) {
+  .nav-primary-links a { font-size: 0.65rem; padding: 0.7rem 0.6rem; }
+  .nav-toggle { padding: 0.7rem 0.9rem; font-size: 1.5rem; }
+  .hero-ctas .btn { font-size: 0.82rem; padding: 0.7rem 1.2rem; }
+  .wpp-float { padding: 0.55rem 0.85rem; font-size: 0.72rem; }
+  .section-title { font-size: 1.7rem; }
+}
+
+/* ══════════════════════════════════════════════
+   FOOTER LINKS — EVITA LINHA MUITO LONGA
+══════════════════════════════════════════════ */
+@media(max-width:600px) {
+  .footer-links { gap: 0.5rem 1rem; }
 }

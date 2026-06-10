@@ -70,6 +70,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preload" href="Imagens/refeicoes.webp" as="image" type="image/webp">
+<link rel="preload" href="Imagens/petiscos.webp" as="image" type="image/webp">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
@@ -138,7 +140,7 @@
       <div class="cardapio-img-wrap" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src)">
         <picture>
           <source srcset="Imagens/refeicoes.webp" type="image/webp">
-          <img src="Imagens/refeicoes.jpeg" alt="Cardápio de refeições da Barraca do Ivan – frutos do mar e pratos da culinária maranhense na Praia do Barro Vermelho" loading="lazy" width="800" height="600">
+          <img src="Imagens/refeicoes.jpeg" alt="Cardápio de refeições da Barraca do Ivan – frutos do mar e pratos da culinária maranhense na Praia do Barro Vermelho" loading="eager" width="800" height="600">
         </picture>
       </div>
     </div>
@@ -147,7 +149,7 @@
       <div class="cardapio-img-wrap" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src)">
         <picture>
           <source srcset="Imagens/petiscos.webp" type="image/webp">
-          <img src="Imagens/petiscos.jpeg" alt="Cardápio de petiscos e bebidas geladas da Barraca do Ivan na Praia do Barro Vermelho" loading="lazy" width="1000" height="708">
+          <img src="Imagens/petiscos.jpeg" alt="Cardápio de petiscos e bebidas geladas da Barraca do Ivan na Praia do Barro Vermelho" loading="eager" width="1000" height="708">
         </picture>
       </div>
     </div>

@@ -316,6 +316,7 @@ footer strong { color:var(--areia); }
 ══════════════════════════════════════════════ */
 @media(max-width:1024px) {
   nav a { padding: 0.8rem 0.8rem; font-size: 0.74rem; letter-spacing: 0.8px; }
+  .nav-primary-links { flex-wrap: nowrap; }
   .sobre-cols { gap: 2rem; }
   .gallery-grid { grid-template-rows: 190px 190px; }
   .cardapio-img-wrap { max-width: 100%; }
@@ -325,20 +326,34 @@ footer strong { color:var(--areia); }
 
 /* ══════════════════════════════════════════════
    RESPONSIVO — NAV MOBILE (≤860px)
-   Hamburger completo — sem scroll horizontal
+   Links sempre visíveis, quebra em 2 linhas
 ══════════════════════════════════════════════ */
 @media(max-width:860px) {
-  nav { flex-direction: row; align-items: stretch; justify-content: flex-end; }
-  .nav-primary-links { display: none; }
-  .nav-more { display: flex; align-items: center; position: relative; flex-shrink: 0; border-left: none; }
-  .mobile-only { display: none !important; }
-  .nav-dropdown {
-    right: 0;
-    min-width: min(100vw, 280px);
-    top: 100%;
-    border-radius: 0 0 0 12px;
+  nav { flex-wrap: wrap; align-items: stretch; justify-content: flex-start; }
+  .nav-primary-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1 1 auto;
+    overflow: visible;
   }
-  .nav-dropdown a { text-align: left; padding: 0.95rem 1.5rem; font-size: 0.84rem; }
+  .nav-primary-links::-webkit-scrollbar { display: none; }
+  .nav-primary-links a {
+    font-size: 0.7rem;
+    padding: 0.65rem 0.75rem;
+    letter-spacing: 0.4px;
+    flex-shrink: 1;
+  }
+  .nav-more {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+    border-left: 1px solid rgba(255,255,255,0.12);
+  }
+  .mobile-only { display: none !important; }
+  .nav-dropdown { right: 0; min-width: 200px; top: 100%; border-radius: 0 0 12px 12px; }
+  .nav-dropdown a { text-align: left; }
 }
 
 /* ══════════════════════════════════════════════
@@ -359,6 +374,14 @@ footer strong { color:var(--areia); }
   .cardapio-img-wrap { max-width: 100%; margin-bottom: 1.2rem; }
   .hero-ctas { gap: 0.65rem; }
   .logo-img { width: 150px; height: 150px; }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVO — NAV CELULAR PEQUENO (≤480px)
+══════════════════════════════════════════════ */
+@media(max-width:480px) {
+  .nav-primary-links a { font-size: 0.64rem; padding: 0.6rem 0.6rem; letter-spacing: 0; }
+  .nav-toggle { padding: 0.6rem 1rem; font-size: 1.5rem; }
 }
 
 /* ══════════════════════════════════════════════
@@ -422,11 +445,11 @@ details[open] > summary > span:last-child { transform: rotate(45deg); }
 .prato-card picture { width: 100%; }
 
 /* ══════════════════════════════════════════════
-   NAV MOBILE — EXTRA PEQUENO (≤360px)
+   TELA MUITO PEQUENA (≤360px)
 ══════════════════════════════════════════════ */
 @media(max-width:360px) {
-  .nav-primary-links a { font-size: 0.65rem; padding: 0.7rem 0.6rem; }
-  .nav-toggle { padding: 0.7rem 0.9rem; font-size: 1.5rem; }
+  .nav-primary-links a { font-size: 0.58rem; padding: 0.55rem 0.5rem; }
+  .nav-toggle { padding: 0.55rem 0.8rem; font-size: 1.4rem; }
   .hero-ctas .btn { font-size: 0.82rem; padding: 0.7rem 1.2rem; }
   .wpp-float { padding: 0.55rem 0.85rem; font-size: 0.72rem; }
   .section-title { font-size: 1.7rem; }

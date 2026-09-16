@@ -17,6 +17,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: 
 body { font-family: 'Lato', sans-serif; background: var(--branco); color: var(--texto); overflow-x: hidden; }
 picture { display: block; }
 picture > img { display: block; }
+/* base responsiva: nenhuma imagem passa da largura do container */
+img { max-width: 100%; height: auto; }
 
 /* HERO */
 .hero {
@@ -213,8 +215,10 @@ html.sem-rolagem, html.sem-rolagem body { overflow: hidden; }
 #excursoes .section-label { color: rgba(255,255,255,0.75); }
 #excursoes .divider { background: white; }
 #excursoes p { color: rgba(255,255,255,0.92); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.85; }
-.btn-excursao { background:white; color:var(--laranja); padding:1rem 2.5rem; border-radius:50px; font-weight:700; font-size:1rem; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:transform 0.2s, box-shadow 0.2s; box-shadow:0 4px 18px rgba(0,0,0,0.15); }
-.btn-excursao:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(0,0,0,0.22); }
+.btn-excursao { background:white; color:var(--laranja); padding:1rem 2.5rem; border-radius:50px; font-weight:700; font-size:1rem; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:transform 0.2s, box-shadow 0.2s; box-shadow:0 4px 18px rgba(0,0,0,0.15); cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+@media (hover: hover) and (pointer: fine) {
+  .btn-excursao:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(0,0,0,0.22); }
+}
 
 /* GALERIA */
 #galeria { background: var(--mar-profundo); }
@@ -301,7 +305,9 @@ footer strong { color:var(--areia); }
 
 /* Excursao button shimmer */
 @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
-.btn-excursao:hover { background: linear-gradient(90deg, white 0%, #fffde7 50%, white 100%); background-size: 200% auto; animation: shimmer 0.8s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .btn-excursao:hover { background: linear-gradient(90deg, white 0%, #fffde7 50%, white 100%); background-size: 200% auto; animation: shimmer 0.8s ease; }
+}
 
 /* Section title span glow */
 .section-title span { text-shadow: 0 0 20px rgba(244,162,97,0.3); transition: text-shadow 0.3s; }
@@ -477,3 +483,8 @@ details[open] > summary > span:last-child { transform: rotate(45deg); }
   .nav-primary-links { padding-left: 0.4rem; }
   .nav-more { padding-right: 0.4rem; }
 }
+
+/* imagens de conteudo ampliam no clique (logo, nav e footer ficam de fora) */
+section img:not(.logo-img),
+.gallery-item img,
+.sobre-img-wrap img { cursor: zoom-in; }

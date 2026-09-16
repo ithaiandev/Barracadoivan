@@ -17,14 +17,14 @@
 <meta property="og:title" content="Cardápio | Barraca do Ivan – Paulino Neves MA">
 <meta property="og:description" content="Cardápio da Barraca do Ivan na Praia do Barro Vermelho, Paulino Neves – MA. Camarão, peixe frito, lagosta, petiscos e bebidas. Peça pelo WhatsApp.">
 <meta property="og:url" content="https://barracadoivan.com/cardapio.html">
-<meta property="og:image" content="https://barracadoivan.com/Imagens/camarao.PNG">
+<meta property="og:image" content="https://barracadoivan.com/Imagens/camarao.jpg">
 <meta property="og:image:alt" content="Camarão fresco da Barraca do Ivan – Praia do Barro Vermelho, Paulino Neves MA">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Barraca do Ivan">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cardápio | Barraca do Ivan – Paulino Neves MA">
 <meta name="twitter:description" content="Cardápio da Barraca do Ivan na Praia do Barro Vermelho, Paulino Neves – MA. Camarão, peixe frito, lagosta, petiscos e bebidas. Peça pelo WhatsApp.">
-<meta name="twitter:image" content="https://barracadoivan.com/Imagens/camarao.PNG">
+<meta name="twitter:image" content="https://barracadoivan.com/Imagens/camarao.jpg">
 <link rel="icon" type="image/x-icon" href="Imagens/favicon.ico">
 <link rel="shortcut icon" href="Imagens/favicon.ico">
 <link rel="apple-touch-icon" href="Imagens/logo.jpeg">
@@ -40,7 +40,7 @@
       "url": "https://barracadoivan.com/",
       "logo": {"@type": "ImageObject", "url": "https://barracadoivan.com/Imagens/logo.jpeg"},
       "telephone": "+5598988126176",
-      "image": ["https://barracadoivan.com/Imagens/camarao.PNG","https://barracadoivan.com/Imagens/peixefrito.PNG","https://barracadoivan.com/Imagens/carnedesol.PNG"],
+      "image": ["https://barracadoivan.com/Imagens/camarao.jpg","https://barracadoivan.com/Imagens/peixefrito.jpg","https://barracadoivan.com/Imagens/carnedesol.jpg"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Praia do Barro Vermelho",
@@ -169,7 +169,7 @@
       <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
         <picture>
           <source srcset="Imagens/camarao.webp" type="image/webp">
-          <img src="Imagens/camarao.PNG" alt="Camarão fresco grelhado – especialidade da Barraca do Ivan na Praia do Barro Vermelho" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
+          <img src="Imagens/camarao.jpg" alt="Camarão fresco grelhado – especialidade da Barraca do Ivan na Praia do Barro Vermelho" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
         </picture>
         <div style="padding:1rem;">
           <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.3rem;">Camarão Fresco</h3>
@@ -179,7 +179,7 @@
       <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
         <picture>
           <source srcset="Imagens/peixefrito.webp" type="image/webp">
-          <img src="Imagens/peixefrito.PNG" alt="Peixe frito fresco – culinária maranhense na Barraca do Ivan" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
+          <img src="Imagens/peixefrito.jpg" alt="Peixe frito fresco – culinária maranhense na Barraca do Ivan" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
         </picture>
         <div style="padding:1rem;">
           <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.3rem;">Peixe Frito</h3>
@@ -189,7 +189,7 @@
       <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
         <picture>
           <source srcset="Imagens/carnedesol.webp" type="image/webp">
-          <img src="Imagens/carnedesol.PNG" alt="Carne de sol – prato nordestino servido na Barraca do Ivan" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
+          <img src="Imagens/carnedesol.jpg" alt="Carne de sol – prato nordestino servido na Barraca do Ivan" style="width:100%;height:180px;object-fit:cover;" loading="lazy" width="320" height="180">
         </picture>
         <div style="padding:1rem;">
           <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.3rem;">Carne de Sol</h3>
@@ -261,6 +261,17 @@ function closeLightbox() {
   document.documentElement.classList.remove('sem-rolagem');
 }
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+// clique em qualquer imagem de conteudo amplia (logo, icones e nav ficam de fora)
+document.addEventListener('click', function(e) {
+  const img = e.target.closest('img');
+  if (!img) return;
+  if (img.id === 'lightbox-img') return;
+  if (img.classList.contains('logo-img')) return;
+  if (img.closest('nav, footer, a, button')) return;
+  openLightbox(img.currentSrc || img.src);
+});
+
 // o nav quebra em varias linhas conforme a largura; mede a altura real
 // para a ancora nao parar escondida atras dele
 const barraNav = document.querySelector('nav');

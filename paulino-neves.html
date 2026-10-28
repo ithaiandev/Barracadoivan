@@ -27,7 +27,7 @@
 <link rel="icon" type="image/x-icon" href="Imagens/favicon.ico">
 <link rel="shortcut icon" href="Imagens/favicon.ico">
 <link rel="apple-touch-icon" href="Imagens/logo.jpeg">
-<meta name="theme-color" content="#0D4A61">
+<meta name="theme-color" content="#E5EEF3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,7 +42,7 @@
         "@type": "PostalAddress",
         "addressLocality": "Paulino Neves",
         "addressRegion": "MA",
-        "postalCode": "65595-000",
+        "postalCode": "65585-000",
         "addressCountry": "BR"
       },
       "geo": {"@type": "GeoCoordinates", "latitude": -2.7186, "longitude": -42.5458}
@@ -59,7 +59,7 @@
         "streetAddress": "Praia do Barro Vermelho",
         "addressLocality": "Paulino Neves",
         "addressRegion": "MA",
-        "postalCode": "65595-000",
+        "postalCode": "65585-000",
         "addressCountry": "BR"
       },
       "servesCuisine": ["Frutos do Mar", "Culinária Maranhense"],
@@ -78,57 +78,82 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.google-analytics.com">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"></noscript>
-<link rel="stylesheet" href="style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=Mr+Dafoe&amp;family=Noto+Serif:wght@600&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=Mr+Dafoe&amp;family=Noto+Serif:wght@600&amp;display=swap"></noscript>
+<link rel="stylesheet" href="estilo.css?v=20261028f">
 </head>
-<body>
+<body class="interna">
 
+<!-- ÍCONES (usados com <use href="#...">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.870 9.870 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.450-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8v6M8 11h6"/></symbol>
+  <symbol id="i-esq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></symbol>
+  <symbol id="i-dir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="i-peixe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-5 9-6 13-3l4-3v12l-4-3c-4 3-10 2-13-3z"/><circle cx="8" cy="11" r="0.8" fill="currentColor"/></symbol>
+  <symbol id="i-musica" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+  <symbol id="i-folha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15"/><path d="M5 19 13 11"/></symbol>
+  <symbol id="i-prato" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v7a3 3 0 0 0 3 3v8M7 3v6M10 3v7a3 3 0 0 1-3 3"/><path d="M17 21V3c-2 1.5-3 4-3 7v4h3"/></symbol>
+  <symbol id="i-grupo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6.5 6.5 0 0 1 3.5 6"/></symbol>
+  <symbol id="i-guarda-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9z"/><path d="M12 12v9M8 21h8"/></symbol>
+  <symbol id="i-onibus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="2"/><path d="M4 11h16M8 18v2M16 18v2"/><circle cx="8" cy="14.5" r="1"/><circle cx="16" cy="14.5" r="1"/></symbol>
+  <symbol id="i-mapa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></symbol>
+</svg>
+
+<a class="cardapio-float" href="cardapio.html#cardapio-menu" aria-label="Ver o cardápio" title="Cardápio"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v7a3 3 0 0 0 3 3v8M7 3v6M10 3v7a3 3 0 0 1-3 3"/><path d="M17 21V3c-2 1.5-3 4-3 7v4h3"/></svg></a>
+<a class="wpp-float" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-wpp"/></svg></a>
+
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onclick="closeLightbox()">
   <button type="button" class="lightbox-close" aria-label="Fechar">&times;</button>
-  <img id="lightbox-img" src="" alt="Imagem ampliada">
+  <img id="lightbox-img" alt="">
 </div>
 
-<a class="wpp-float" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+vim+pelo+site+e+quero+informa%C3%A7%C3%B5es!" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22" style="flex-shrink:0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
-
-<!-- HERO -->
-<header class="hero" style="min-height:55vh;padding:3rem 1.5rem 7rem;">
-  <div class="bubble b1"></div><div class="bubble b2"></div>
-  <div class="bubble b3"></div><div class="bubble b4"></div>
-  <div class="hero-content">
-    <picture>
-      <source srcset="Imagens/logo.webp" type="image/webp">
-      <img src="Imagens/logo.jpeg" alt="Logo Barraca do Ivan – Paulino Neves MA" class="logo-img" style="width:110px;height:110px;" width="110" height="110" fetchpriority="high">
-    </picture>
-    <h1 class="hero-title" style="font-size:clamp(2rem,7vw,4.5rem);">Paulino Neves</h1>
-    <p class="hero-praia">🏙️ Município do Maranhão &mdash; Litoral Norte</p>
-    <p class="hero-tagline">&ldquo;Natureza preservada, cultura viva e hospitalidade maranhense&rdquo;</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="praia-do-barro-vermelho.html">🌊 Praia do Barro Vermelho</a>
-      <a class="btn btn-outline" href="como-chegar-paulino-neves.html">🗺️ Como Chegar</a>
+<!-- CABEÇALHO -->
+<header class="topo" id="topo">
+  <div class="topo-linha">
+    <a class="marca" href="index.html" aria-label="Barraca do Ivan – página inicial">
+      <picture>
+        <source srcset="Imagens/logo.webp" type="image/webp">
+        <img src="Imagens/logo.jpeg" alt="Logo Barraca do Ivan" width="54" height="54">
+      </picture>
+    </a>
+    <nav class="menu" id="menu" aria-label="Menu principal">
+      <div class="menu-trilho">
+        <a href="index.html">Página Inicial</a>
+        <a href="index.html#sobre">Quem Somos</a>
+        <a href="index.html#gastronomia">Gastronomia</a>
+        <a href="index.html#praia">A Praia</a>
+        <a href="excursoes.html">Excursões</a>
+        <a href="index.html#como-chegar">Como Chegar</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="https://maps.app.goo.gl/vjuzgA27zzzx3Y1H8" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </nav>
+    <div class="redes-topo">
+      <a class="redondo" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-wpp"/></svg></a>
+      <a class="redondo" href="https://www.instagram.com/barraca.do.ivan" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-insta"/></svg></a>
     </div>
   </div>
 </header>
 
-<nav>
-  <div class="nav-primary-links">
-    <a href="index.html">Início</a>
-    <a href="cardapio.html">Cardápio</a>
-    <a href="praia-do-barro-vermelho.html">Praia do Barro Vermelho</a>
-    <a href="paulino-neves.html">Paulino Neves</a>
-    <a href="onde-comer-barreirinhas.html">Onde Comer</a>
-    <a href="como-chegar-paulino-neves.html">Como Chegar</a>
-  </div>
-  <div class="nav-more">
-    <div class="nav-dropdown">
-      <a href="index.html#galeria">Galeria</a>
-      <a href="restaurante-paulino-neves.html">Restaurante</a>
-      <a href="excursoes.html">Excursões</a>
-      <a href="index.html#contato">Contato</a>
-      <a href="index.html#faq">FAQ</a>
+<main>
+
+<!-- TOPO DA PÁGINA -->
+<section class="hero sub" aria-label="Paulino Neves">
+  <img class="hero-capa" src="Imagens/praiadrone-1600.webp" alt="" width="1600" height="900" fetchpriority="high">
+  <div class="hero-conteudo">
+    <h1>Paulino Neves</h1>
+    <p class="hero-local">Município do Maranhão &mdash; Litoral Norte</p>
+    <p class="hero-frase-sub">&ldquo;Natureza preservada, cultura viva e hospitalidade maranhense&rdquo;</p>
+    <div class="hero-botoes">
+      <a class="pilula" href="praia-do-barro-vermelho.html">Praia do Barro Vermelho</a>
+      <a class="pilula" href="como-chegar-paulino-neves.html">Como Chegar</a>
     </div>
   </div>
-</nav>
+</section>
 
 <!-- SOBRE O MUNICÍPIO -->
 <section id="municipio">
@@ -152,23 +177,23 @@
     <div class="divider"></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px, 100%),1fr));gap:1.5rem;margin-top:1rem;">
       <div style="border-left:4px solid var(--mar);padding:1.2rem 1.4rem;background:#f8fbff;border-radius:0 14px 14px 0;">
-        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;">🎣 Pesca Artesanal</h3>
+        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-peixe"/></svg> Pesca Artesanal</h3>
         <p style="color:var(--texto-suave);font-size:0.92rem;line-height:1.8;">A pesca artesanal é a base da economia e da identidade cultural de Paulino Neves. Os pescadores locais usam técnicas tradicionais passadas de geração em geração, garantindo a frescura dos frutos do mar servidos na região.</p>
       </div>
       <div style="border-left:4px solid var(--laranja);padding:1.2rem 1.4rem;background:#fff8f3;border-radius:0 14px 14px 0;">
-        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;">🥁 Festas e Tradições</h3>
+        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-musica"/></svg> Festas e Tradições</h3>
         <p style="color:var(--texto-suave);font-size:0.92rem;line-height:1.8;">O município mantém vivas as tradições maranhenses: o bumba-meu-boi, as festas juninas e os tambores de crioula fazem parte do calendário cultural e refletem a riqueza da cultura popular do Maranhão.</p>
       </div>
       <div style="border-left:4px solid var(--verde);padding:1.2rem 1.4rem;background:#f3fbf6;border-radius:0 14px 14px 0;">
-        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;">🌿 Relação com a Natureza</h3>
+        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-folha"/></svg> Relação com a Natureza</h3>
         <p style="color:var(--texto-suave);font-size:0.92rem;line-height:1.8;">O povo de Paulino Neves tem uma relação profunda e respeitosa com a natureza. As dunas, o rio Preguiças e o litoral fazem parte do cotidiano da população, que zelan pela preservação do ambiente.</p>
       </div>
       <div style="border-left:4px solid var(--mar-claro);padding:1.2rem 1.4rem;background:#f0f9fd;border-radius:0 14px 14px 0;">
-        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;">🍽️ Gastronomia Maranhense</h3>
+        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-prato"/></svg> Gastronomia Maranhense</h3>
         <p style="color:var(--texto-suave);font-size:0.92rem;line-height:1.8;">A culinária local é rica e diversificada. O arroz-de-cuxá, o caranguejo, a moqueca de peixe e os frutos do mar frescos são os pratos mais representativos e podem ser degustados na <strong>Barraca do Ivan</strong>.</p>
       </div>
       <div style="border-left:4px solid var(--laranja-vivo);padding:1.2rem 1.4rem;background:#fffbf0;border-radius:0 14px 14px 0;">
-        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;">🤝 Hospitalidade</h3>
+        <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.6rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-grupo"/></svg> Hospitalidade</h3>
         <p style="color:var(--texto-suave);font-size:0.92rem;line-height:1.8;">O povo paulinense é conhecido pela simpatia e acolhimento aos visitantes. A hospitalidade maranhense faz com que turistas de todo o Brasil voltem a Paulino Neves ano após ano.</p>
       </div>
     </div>
@@ -176,7 +201,7 @@
 </section>
 
 <!-- EXPLORE PAULINO NEVES — LINKS INTERNOS -->
-<section id="explore" style="background:#EEF7F4;">
+<section id="explore" style="background:var(--azul);">
   <div class="sr" style="max-width:900px;margin:0 auto;text-align:center;">
     <p class="section-label">Navegue pelo site</p>
     <h2 class="section-title">Explore <span>Paulino Neves</span></h2>
@@ -184,25 +209,25 @@
     <p style="color:var(--texto-suave);font-size:1rem;line-height:1.8;margin-bottom:2rem;">Saiba tudo sobre o que Paulino Neves tem a oferecer navegando pelas páginas abaixo:</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px, 100%),1fr));gap:1.2rem;text-align:left;">
       <a href="praia-do-barro-vermelho.html" style="display:block;background:white;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.07);text-decoration:none;border-top:4px solid var(--mar);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 28px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.07)'">
-        <div style="font-size:1.8rem;margin-bottom:0.5rem;">🏖️</div>
+        <div style="font-size:1.8rem;margin-bottom:0.5rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-guarda-sol"/></svg></div>
         <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.4rem;">Praia do Barro Vermelho</h3>
         <p style="color:var(--texto-suave);font-size:0.85rem;line-height:1.6;">Conheça a principal praia de Paulino Neves: areias brancas, dunas e águas calmas.</p>
         <span style="color:var(--mar);font-size:0.82rem;font-weight:700;">Ver guia completo →</span>
       </a>
-      <a href="cardapio.html" style="display:block;background:white;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.07);text-decoration:none;border-top:4px solid var(--laranja);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 28px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.07)'">
-        <div style="font-size:1.8rem;margin-bottom:0.5rem;">🦐</div>
+      <a href="cardapio.html#cardapio-menu" style="display:block;background:white;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.07);text-decoration:none;border-top:4px solid var(--laranja);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 28px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.07)'">
+        <div style="font-size:1.8rem;margin-bottom:0.5rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-peixe"/></svg></div>
         <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.4rem;">Cardápio</h3>
         <p style="color:var(--texto-suave);font-size:0.85rem;line-height:1.6;">Frutos do mar frescos na Barraca do Ivan. Camarão, peixe frito, petiscos e bebidas.</p>
         <span style="color:var(--laranja);font-size:0.82rem;font-weight:700;">Ver cardápio →</span>
       </a>
       <a href="excursoes.html" style="display:block;background:white;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.07);text-decoration:none;border-top:4px solid var(--verde);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 28px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.07)'">
-        <div style="font-size:1.8rem;margin-bottom:0.5rem;">🚌</div>
+        <div style="font-size:1.8rem;margin-bottom:0.5rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-onibus"/></svg></div>
         <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.4rem;">Excursões</h3>
         <p style="color:var(--texto-suave);font-size:0.85rem;line-height:1.6;">Atendimento especial para grupos e agências. Agendamento com antecedência.</p>
         <span style="color:var(--verde);font-size:0.82rem;font-weight:700;">Ver excursões →</span>
       </a>
       <a href="como-chegar-paulino-neves.html" style="display:block;background:white;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.07);text-decoration:none;border-top:4px solid var(--mar-claro);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 28px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.07)'">
-        <div style="font-size:1.8rem;margin-bottom:0.5rem;">🗺️</div>
+        <div style="font-size:1.8rem;margin-bottom:0.5rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-mapa"/></svg></div>
         <h3 style="color:var(--mar-profundo);font-size:1rem;margin-bottom:0.4rem;">Como Chegar</h3>
         <p style="color:var(--texto-suave);font-size:0.85rem;line-height:1.6;">Rotas de carro, ônibus e traslado de Barreirinhas, São Luís e Parnaíba.</p>
         <span style="color:var(--mar-claro);font-size:0.82rem;font-weight:700;">Ver rotas →</span>
@@ -217,79 +242,63 @@
     <p class="section-label" style="color:var(--laranja-vivo);">Em Paulino Neves</p>
     <h2 class="section-title" style="color:var(--areia);">Coma na <span style="color:var(--laranja-vivo);">Barraca do Ivan</span></h2>
     <div class="divider" style="background:var(--laranja-vivo);"></div>
-    <p style="color:rgba(245,230,200,0.92);font-size:1.05rem;line-height:1.9;margin-bottom:2rem;">O melhor ponto gastronômico de Paulino Neves fica diretamente na <strong style="color:var(--areia);">Praia do Barro Vermelho</strong>. A <strong style="color:var(--areia);">Barraca do Ivan</strong> serve frutos do mar frescos todos os dias das 9h às 18h, atendendo turistas individuais e grupos de excursão.</p>
-    <p style="color:rgba(245,230,200,0.75);font-size:0.9rem;margin-top:1rem;">
+    <p style="color:rgba(229,238,243,0.92);font-size:1.05rem;line-height:1.9;margin-bottom:2rem;">O melhor ponto gastronômico de Paulino Neves fica diretamente na <strong style="color:var(--areia);">Praia do Barro Vermelho</strong>. A <strong style="color:var(--areia);">Barraca do Ivan</strong> serve frutos do mar frescos todos os dias das 9h às 18h, atendendo turistas individuais e grupos de excursão.</p>
+    <p style="color:rgba(229,238,243,0.75);font-size:0.9rem;margin-top:1rem;">
       Veja também: <a href="onde-comer-barreirinhas.html" style="color:var(--laranja-vivo);font-weight:700;">restaurantes de Barreirinhas e região →</a>
     </p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
-      <a class="btn btn-primary" href="cardapio.html">🦐 Ver Cardápio</a>
+      <a class="btn btn-primary" href="cardapio.html#cardapio-menu"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-peixe"/></svg> Ver Cardápio</a>
       <a class="btn btn-wpp" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="flex-shrink:0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Fazer Pedido</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Início</a>
-    <a href="cardapio.html">Cardápio</a>
-    <a href="praia-do-barro-vermelho.html">Praia do Barro Vermelho</a>
-    <a href="paulino-neves.html">Paulino Neves</a>
-    <a href="onde-comer-barreirinhas.html">Onde Comer</a>
-    <a href="restaurante-paulino-neves.html">Restaurante Paulino Neves</a>
-    <a href="excursoes.html">Excursões</a>
-    <a href="como-chegar-paulino-neves.html">Como Chegar</a>
-    <a href="index.html#galeria">Galeria</a>
-    <a href="index.html#contato">Contato</a>
-    <a href="index.html#faq">FAQ</a>
-    <a href="https://www.instagram.com/barraca.do.ivan" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://wa.me/5598988126176" target="_blank" rel="noopener">WhatsApp</a>
+</main>
+
+<!-- RODAPÉ -->
+<footer class="rodape" id="contato">
+  <div class="rodape-grid">
+    <div class="rodape-info">
+      <div class="selo" aria-hidden="true">
+        <svg viewBox="0 0 150 150">
+          <defs><path id="circulo" d="M75,75 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"/></defs>
+          <text fill="#0D4A61" font-family="Barlow, sans-serif" font-size="11" font-weight="500" letter-spacing="2"><textPath href="index.html#circulo" textLength="385" lengthAdjust="spacing">BARRACA DO IVAN • PRAIA DO BARRO VERMELHO •</textPath></text>
+        </svg>
+        <picture>
+          <source srcset="Imagens/logo.webp" type="image/webp">
+          <img src="Imagens/logo.jpeg" alt="" width="90" height="90" loading="lazy">
+        </picture>
+      </div>
+      <div>
+        <h2>Informações e Reservas:</h2>
+        <a class="tel" href="https://wa.me/5598988126176" target="_blank" rel="noopener">(98) 98812-6176 <small>pedidos</small></a>
+        <a class="tel" href="https://wa.me/5511969170096" target="_blank" rel="noopener">(11) 96917-0096 <small>excursões</small></a>
+        <address>Praia do Barro Vermelho - Paulino Neves, MA<br>Todos os dias, das 9h às 18h.</address>
+        <div class="redes">
+          <a class="redondo" href="https://wa.me/5598988126176" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-wpp"/></svg></a>
+          <a class="redondo" href="https://www.instagram.com/barraca.do.ivan" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-insta"/></svg></a>
+          <a class="redondo" href="https://maps.app.goo.gl/vjuzgA27zzzx3Y1H8" target="_blank" rel="noopener" aria-label="Google Maps"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-pin"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="rodape-mapa">
+      <iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1sBarraca+do+Ivan+Paulino+Neves+Maranh%C3%A3o!6i15" title="Localização da Barraca do Ivan no mapa" loading="lazy" allowfullscreen></iframe>
+    </div>
   </div>
-  <p>© 2026 <strong>Barraca do Ivan</strong> · Restaurante na Praia do Barro Vermelho · Paulino Neves — MA</p>
-  <p style="margin-top:0.4rem;font-size:0.8rem;opacity:0.65;">Restaurante de frutos do mar · Próximo a Barreirinhas e Lençóis Maranhenses · Atendemos Excursões</p>
+  <div class="rodape-fim">
+    <nav aria-label="Guias">
+      <a href="cardapio.html#cardapio-menu">Cardápio</a>
+      <a href="excursoes.html">Excursões</a>
+      <a href="praia-do-barro-vermelho.html">Praia do Barro Vermelho</a>
+      <a href="paulino-neves.html">Paulino Neves</a>
+      <a href="restaurante-paulino-neves.html">Restaurante em Paulino Neves</a>
+      <a href="onde-comer-barreirinhas.html">Onde Comer</a>
+      <a href="como-chegar-paulino-neves.html">Como Chegar</a>
+    </nav>
+    <p>2026 © Barraca do Ivan. Todos os direitos reservados.</p>
+  </div>
 </footer>
 
-<script>
-// o nav quebra em varias linhas conforme a largura; mede a altura real
-// para a ancora nao parar escondida atras dele
-const barraNav = document.querySelector('nav');
-if (barraNav) {
-  const medirNav = () => document.documentElement.style.setProperty('--nav-h', (barraNav.offsetHeight + 12) + 'px');
-  medirNav();
-  window.addEventListener('resize', medirNav);
-  window.addEventListener('load', medirNav);
-}
-
-function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox').classList.add('open');
-  document.documentElement.classList.add('sem-rolagem');
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.documentElement.classList.remove('sem-rolagem');
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
-
-// clique em qualquer imagem de conteudo amplia (logo, icones e nav ficam de fora)
-document.addEventListener('click', function(e) {
-  const img = e.target.closest('img');
-  if (!img) return;
-  if (img.id === 'lightbox-img') return;
-  if (img.classList.contains('logo-img')) return;
-  if (img.closest('nav, footer, a, button')) return;
-  openLightbox(img.currentSrc || img.src);
-});
-
-const srEls = document.querySelectorAll('.sr');
-const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (semAnimacao || !('IntersectionObserver' in window)) {
-  srEls.forEach(el => el.classList.add('visible'));
-} else {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, {threshold: 0, rootMargin: '400px 0px'});
-  srEls.forEach(el => obs.observe(el));
-}
-</script>
+<script src="site.js?v=20261028f"></script>
 </body>
 </html>

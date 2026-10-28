@@ -1,0 +1,230 @@
+// Barraca do Ivan — comportamento comum a todas as páginas
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.documentElement.classList.add('sem-rolagem');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.documentElement.classList.remove('sem-rolagem');
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+// abas do cardápio (página cardapio.html)
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ao arrastar um carrossel com o dedo, alguns celulares disparam um "clique" no fim;
+// guardamos onde o toque comecou para nao abrir a foto ampliada sem querer
+let toqueInicio = null, arrastou = false;
+document.addEventListener('pointerdown', e => { toqueInicio = { x: e.clientX, y: e.clientY }; arrastou = false; }, { passive: true });
+document.addEventListener('pointermove', e => {
+  if (toqueInicio && Math.hypot(e.clientX - toqueInicio.x, e.clientY - toqueInicio.y) > 10) arrastou = true;
+}, { passive: true });
+document.querySelectorAll('.trilho, .faixa-fotos').forEach(t => t.addEventListener('scroll', () => { arrastou = true; }, { passive: true }));
+
+// clique em qualquer foto de conteudo amplia (links, botoes, cabecalho, rodape e fundos ficam de fora)
+document.addEventListener('click', function(e) {
+  const img = e.target.closest('img');
+  if (!img) return;
+  if (arrastou && img.closest('.trilho, .faixa-fotos')) { arrastou = false; return; }
+  if (img.id === 'lightbox-img') return;
+  if (img.closest('header, footer, a, button, .hero, .chamada')) return;
+  openLightbox(img.currentSrc || img.src);
+});
+
+// setas dos carrosseis andam uma "tela" por vez
+document.querySelectorAll('.carrossel').forEach(function(c) {
+  const trilho = c.querySelector('.trilho');
+  const passo = () => trilho.firstElementChild ? trilho.firstElementChild.offsetWidth + 10 : trilho.clientWidth * 0.8;
+  c.querySelector('.esq').addEventListener('click', () => trilho.scrollBy({ left: -passo(), behavior: 'smooth' }));
+  c.querySelector('.dir').addEventListener('click', () => trilho.scrollBy({ left: passo(), behavior: 'smooth' }));
+});
+
+// menu andando: repete os links ate cobrir a largura e duplica tudo, assim o
+// loop volta ao inicio sem emenda. Anda sozinho; com o dedo ou o mouse a pessoa
+// arrasta para os dois lados e, ao soltar, ele continua de onde ficou
+const menu = document.getElementById('menu');
+if (menu && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const menuTrilho = menu.querySelector('.menu-trilho');
+  const linksOriginais = Array.from(menuTrilho.children);
+  const VELOCIDADE = 45; // px por segundo
+  let ciclo = 0, x = 0, segurando = false, mouseEmCima = false, comFoco = false;
+  let inicioX = 0, inicioPos = 0, menuArrastou = false, ultimo = 0;
+
+  const encaixar = () => {
+    if (!ciclo) return;
+    x = ((x % ciclo) - ciclo) % ciclo; // mantem x entre -ciclo e 0
+    menuTrilho.style.transform = `translate3d(${x}px,0,0)`;
+  };
+  const montarMenu = () => {
+    menuTrilho.replaceChildren(...linksOriginais);
+    const larguraGrupo = menuTrilho.scrollWidth;
+    if (!larguraGrupo) return;
+    const repeticoes = Math.max(1, Math.ceil(menu.clientWidth / larguraGrupo));
+    for (let i = 1; i < repeticoes * 2; i++) {
+      linksOriginais.forEach(a => {
+        const copia = a.cloneNode(true);
+        copia.setAttribute('aria-hidden', 'true');
+        copia.setAttribute('tabindex', '-1');
+        copia.removeAttribute('aria-current');
+        menuTrilho.appendChild(copia);
+      });
+    }
+    ciclo = larguraGrupo * repeticoes;
+    menuTrilho.querySelectorAll('a').forEach(a => a.setAttribute('draggable', 'false'));
+    menu.classList.add('andando');
+    encaixar();
+  };
+  const passo = t => {
+    const dt = ultimo ? Math.min((t - ultimo) / 1000, 0.1) : 0;
+    ultimo = t;
+    if (ciclo && !segurando && !mouseEmCima && !comFoco) { x -= VELOCIDADE * dt; encaixar(); }
+    requestAnimationFrame(passo);
+  };
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { montarMenu(); requestAnimationFrame(passo); });
+  // so remonta quando a largura muda: no celular a barra de endereco aparece e
+  // some ao rolar (muda so a altura) e isso nao deve refazer o menu
+  let menuTimer, larguraMenu = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth === larguraMenu) return;
+    larguraMenu = window.innerWidth;
+    clearTimeout(menuTimer); menuTimer = setTimeout(montarMenu, 200);
+  });
+
+  // arrastar com dedo ou mouse
+  menu.addEventListener('pointerdown', e => {
+    if (e.button > 0) return;
+    segurando = true; menuArrastou = false;
+    inicioX = e.clientX; inicioPos = x;
+  });
+  menu.addEventListener('pointermove', e => {
+    if (!segurando) return;
+    const dx = e.clientX - inicioX;
+    if (!menuArrastou && Math.abs(dx) > 6) {
+      menuArrastou = true;
+      menu.classList.add('arrastando');
+      try { menu.setPointerCapture(e.pointerId); } catch (_) {}
+    }
+    if (menuArrastou) { x = inicioPos + dx; encaixar(); }
+  });
+  const soltar = () => {
+    if (!segurando) return;
+    segurando = false; menu.classList.remove('arrastando');
+    // o clique que vem logo depois do soltar ja foi barrado; o proximo vale
+    setTimeout(() => { menuArrastou = false; }, 0);
+  };
+  // soltar em qualquer lugar da pagina conta (o mouse pode sair da faixa antes)
+  window.addEventListener('pointerup', soltar);
+  window.addEventListener('pointercancel', soltar);
+  // no toque o link segura o dedo primeiro e o "perde" quando a faixa o captura:
+  // so conta como soltar quando quem perdeu foi a propria faixa
+  menu.addEventListener('lostpointercapture', e => { if (e.target === menu) soltar(); });
+  // depois de arrastar, soltar em cima de um link nao abre o link
+  menu.addEventListener('click', e => { if (menuArrastou) { e.preventDefault(); e.stopPropagation(); } }, true);
+  // roda/touchpad de lado no notebook tambem move a faixa
+  menu.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault(); x -= e.deltaX; encaixar();
+  }, { passive: false });
+  // com o mouse parado em cima (para clicar) ou navegando pelo teclado, a faixa espera
+  menu.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') mouseEmCima = true; });
+  menu.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') mouseEmCima = false; });
+  menu.addEventListener('focusin', e => {
+    // so o foco do teclado (Tab) segura a faixa; toque/clique deixam ela andar
+    try { comFoco = e.target.matches(':focus-visible'); } catch (_) { comFoco = false; }
+  });
+  menu.addEventListener('focusout', () => { comFoco = false; });
+}
+
+// o video de divulgacao tem som: garante que ele nunca toque mudo
+// e pausa quando a pessoa rola para longe dele
+const videoDivulgacao = document.getElementById('video-divulgacao');
+if (videoDivulgacao) {
+  videoDivulgacao.muted = false;
+  videoDivulgacao.volume = 1;
+  videoDivulgacao.addEventListener('play', () => { videoDivulgacao.muted = false; });
+  // capa e inicio do video so carregam quando a pessoa rola perto dele:
+  // assim nao disputam a internet com o video do topo na abertura do site
+  const prepararDivulgacao = () => {
+    if (videoDivulgacao.dataset.poster) { videoDivulgacao.poster = videoDivulgacao.dataset.poster; delete videoDivulgacao.dataset.poster; }
+    if (videoDivulgacao.preload === 'none') videoDivulgacao.preload = 'metadata';
+  };
+  videoDivulgacao.addEventListener('play', prepararDivulgacao, { once: true });
+  if ('IntersectionObserver' in window) {
+    const perto = new IntersectionObserver(entries => {
+      if (entries.some(e => e.isIntersecting)) { prepararDivulgacao(); perto.disconnect(); }
+    }, { rootMargin: '600px 0px' });
+    perto.observe(videoDivulgacao);
+  } else prepararDivulgacao();
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      entries.forEach(e => { if (!e.isIntersecting && !videoDivulgacao.paused) videoDivulgacao.pause(); });
+    }, { threshold: 0.25 }).observe(videoDivulgacao);
+  }
+  document.addEventListener('visibilitychange', () => { if (document.hidden) videoDivulgacao.pause(); });
+}
+
+// cabecalho fica solido depois que sai da foto/video do topo
+const topo = document.getElementById('topo');
+const heroTopo = document.querySelector('.hero');
+if (topo) {
+  // a altura do topo e medida so ao abrir e ao mudar o tamanho da tela,
+  // nao a cada movimento da rolagem
+  let limite = 0;
+  const medir = () => { limite = heroTopo ? heroTopo.offsetHeight * 0.6 : 0; };
+  const ajustarTopo = () => topo.classList.toggle('solido', window.scrollY > limite);
+  medir(); ajustarTopo();
+  window.addEventListener('scroll', ajustarTopo, { passive: true });
+  window.addEventListener('resize', () => { medir(); ajustarTopo(); }, { passive: true });
+  window.addEventListener('load', () => { medir(); ajustarTopo(); }, { once: true });
+}
+
+// quem pediu menos movimento ou economia de dados fica so com a imagem de capa
+const heroVideo = document.getElementById('hero-video');
+const economia = navigator.connection && navigator.connection.saveData;
+if (heroVideo && (window.matchMedia('(prefers-reduced-motion: reduce)').matches || economia)) {
+  heroVideo.pause();
+  heroVideo.remove();
+} else if (heroVideo) {
+  // o video comeca escondido atras da foto de capa e so aparece quando esta
+  // rodando de verdade; se a rede engasgar, a capa volta por cima (ninguem ve
+  // o video congelado). O play e dado logo: o Safari do iPhone nao carrega o
+  // video antes do play, entao esperar "carregar tudo" deixaria ele parado.
+  let naTela = true;
+  const mostrar = () => { if (!heroVideo.paused) heroVideo.classList.add('pronto'); };
+  const esconder = () => heroVideo.classList.remove('pronto');
+  const tocar = () => { if (naTela) heroVideo.play().catch(() => {}); };
+  heroVideo.addEventListener('playing', mostrar);
+  heroVideo.addEventListener('timeupdate', mostrar);
+  heroVideo.addEventListener('waiting', esconder);
+  // o video ja comeca a baixar junto com a pagina (preload="auto" no HTML)
+  // e o play e pedido na hora: ele aparece assim que tiver o primeiro trecho
+  tocar();
+  // fora da tela o video pausa (poupa bateria e internet) e volta ao reaparecer
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        naTela = e.isIntersecting;
+        if (!naTela) heroVideo.pause();
+        else tocar();
+      });
+    }).observe(heroVideo);
+  }
+}
+
+const srEls = document.querySelectorAll('.sr');
+const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (semAnimacao || !('IntersectionObserver' in window)) {
+  srEls.forEach(el => el.classList.add('visible'));
+} else {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+  srEls.forEach(el => obs.observe(el));
+}

@@ -28,7 +28,7 @@
 <link rel="icon" type="image/x-icon" href="Imagens/favicon.ico">
 <link rel="shortcut icon" href="Imagens/favicon.ico">
 <link rel="apple-touch-icon" href="Imagens/logo.jpeg">
-<meta name="theme-color" content="#0D4A61">
+<meta name="theme-color" content="#E5EEF3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -72,57 +72,76 @@
 <link rel="preconnect" href="https://www.google-analytics.com">
 <link rel="preload" href="Imagens/refeicoes.webp" as="image" type="image/webp">
 <link rel="preload" href="Imagens/petiscos.webp" as="image" type="image/webp">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"></noscript>
-<link rel="stylesheet" href="style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=Mr+Dafoe&amp;family=Noto+Serif:wght@600&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=Mr+Dafoe&amp;family=Noto+Serif:wght@600&amp;display=swap"></noscript>
+<link rel="stylesheet" href="estilo.css?v=20261028f">
 </head>
-<body>
+<body class="interna">
 
-<a class="wpp-float" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22" style="flex-shrink:0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+<!-- ÍCONES (usados com <use href="#...">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.870 9.870 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.450-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8v6M8 11h6"/></symbol>
+  <symbol id="i-esq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></symbol>
+  <symbol id="i-dir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="i-prato" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v7a3 3 0 0 0 3 3v8M7 3v6M10 3v7a3 3 0 0 1-3 3"/><path d="M17 21V3c-2 1.5-3 4-3 7v4h3"/></symbol>
+  <symbol id="i-onda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 17c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 7c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/></symbol>
+</svg>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Cardápio ampliado" onclick="closeLightbox()">
+<a class="cardapio-float" href="#cardapio-menu" aria-label="Ver o cardápio" title="Cardápio"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v7a3 3 0 0 0 3 3v8M7 3v6M10 3v7a3 3 0 0 1-3 3"/><path d="M17 21V3c-2 1.5-3 4-3 7v4h3"/></svg></a>
+<a class="wpp-float" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-wpp"/></svg></a>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onclick="closeLightbox()">
   <button type="button" class="lightbox-close" aria-label="Fechar">&times;</button>
-  <img id="lightbox-img" src="" alt="Cardápio">
+  <img id="lightbox-img" alt="">
 </div>
 
-<header class="hero" style="min-height:55vh;padding:3rem 1.5rem 7rem;">
-  <div class="bubble b1"></div><div class="bubble b2"></div>
-  <div class="bubble b3"></div><div class="bubble b4"></div>
-  <div class="hero-bg" style="background-image:url('Imagens/camarao.jpg');opacity:0.25;"></div>
-  <div class="hero-content">
-    <picture>
-      <source srcset="Imagens/logo.webp" type="image/webp">
-      <img src="Imagens/logo.jpeg" alt="Logo Barraca do Ivan" class="logo-img" style="width:110px;height:110px;" width="110" height="110" fetchpriority="high">
-    </picture>
-    <h1 class="hero-title" style="font-size:clamp(2rem,7vw,4.5rem);">Nosso Cardápio</h1>
-    <p class="hero-praia">🦐 Frutos do Mar Frescos &mdash; Paulino Neves MA</p>
-    <p class="hero-tagline">&ldquo;Ingredientes frescos do litoral maranhense todos os dias&rdquo;</p>
-    <div class="hero-ctas">
-      <a class="btn btn-wpp" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="flex-shrink:0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Fazer Pedido</a>
-      <a class="btn btn-outline" href="excursoes.html">🚌 Atendemos Grupos</a>
+<!-- CABEÇALHO -->
+<header class="topo" id="topo">
+  <div class="topo-linha">
+    <a class="marca" href="index.html" aria-label="Barraca do Ivan – página inicial">
+      <picture>
+        <source srcset="Imagens/logo.webp" type="image/webp">
+        <img src="Imagens/logo.jpeg" alt="Logo Barraca do Ivan" width="54" height="54">
+      </picture>
+    </a>
+    <nav class="menu" id="menu" aria-label="Menu principal">
+      <div class="menu-trilho">
+        <a href="index.html">Página Inicial</a>
+        <a href="index.html#sobre">Quem Somos</a>
+        <a href="index.html#gastronomia">Gastronomia</a>
+        <a href="index.html#praia">A Praia</a>
+        <a href="excursoes.html">Excursões</a>
+        <a href="index.html#como-chegar">Como Chegar</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="https://maps.app.goo.gl/vjuzgA27zzzx3Y1H8" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </nav>
+    <div class="redes-topo">
+      <a class="redondo" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-wpp"/></svg></a>
+      <a class="redondo" href="https://www.instagram.com/barraca.do.ivan" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-insta"/></svg></a>
     </div>
   </div>
 </header>
 
-<nav>
-  <div class="nav-primary-links">
-    <a href="index.html">Início</a>
-    <a href="cardapio.html">Cardápio</a>
-    <a href="praia-do-barro-vermelho.html">Praia do Barro Vermelho</a>
-    <a href="paulino-neves.html">Paulino Neves</a>
-    <a href="onde-comer-barreirinhas.html">Onde Comer</a>
-    <a href="como-chegar-paulino-neves.html">Como Chegar</a>
-  </div>
-  <div class="nav-more">
-    <div class="nav-dropdown">
-      <a href="index.html#galeria">Galeria</a>
-      <a href="restaurante-paulino-neves.html">Restaurante</a>
-      <a href="excursoes.html">Excursões</a>
-      <a href="index.html#contato">Contato</a>
-      <a href="index.html#faq">FAQ</a>
+<main>
+
+<!-- TOPO DA PÁGINA -->
+<section class="hero sub" aria-label="Nosso Cardápio">
+  <img class="hero-capa" src="Imagens/barraca-1600.webp" alt="" width="1600" height="1200" fetchpriority="high">
+  <div class="hero-conteudo">
+    <h1>Nosso Cardápio</h1>
+    <p class="hero-local">Frutos do Mar Frescos &mdash; Paulino Neves MA</p>
+    <p class="hero-frase-sub">&ldquo;Ingredientes frescos do litoral maranhense todos os dias&rdquo;</p>
+    <div class="hero-botoes">
+      <a class="pilula" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener">Fazer Pedido</a>
+      <a class="pilula" href="excursoes.html">Atendemos Grupos</a>
     </div>
   </div>
-</nav>
+</section>
 
 <section id="cardapio-menu">
   <div class="cardapio-inner sr">
@@ -131,8 +150,8 @@
     <div class="divider"></div>
 
     <div class="menu-tabs">
-      <button class="tab-btn active" onclick="switchTab('refeicoes', this)">🍽 Refeições</button>
-      <button class="tab-btn" onclick="switchTab('petiscos', this)">🍢 Petiscos & Bebidas</button>
+      <button class="tab-btn active" onclick="switchTab('refeicoes', this)"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-prato"/></svg> Refeições</button>
+      <button class="tab-btn" onclick="switchTab('petiscos', this)"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-prato"/></svg> Petiscos & Bebidas</button>
     </div>
 
     <div class="tab-panel active" id="tab-refeicoes">
@@ -160,7 +179,7 @@
   </div>
 </section>
 
-<section id="destaques" style="background:#EEF7F4;">
+<section id="destaques" style="background:var(--azul);">
   <div class="sr" style="max-width:960px;margin:0 auto;text-align:center;">
     <p class="section-label">Especialidades</p>
     <h2 class="section-title">Pratos em <span>Destaque</span></h2>
@@ -205,17 +224,17 @@
     <p class="section-label" style="color:rgba(255,255,255,0.8);">Fácil e rápido</p>
     <h2 class="section-title" style="color:white;">Como fazer seu <span style="color:white;text-shadow:none;">pedido</span></h2>
     <div class="divider" style="background:white;"></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(160px, 100%),1fr));gap:1rem;margin-bottom:2rem;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100px, 100%),1fr));gap:0.75rem;margin-bottom:2rem;">
       <div style="background:rgba(255,255,255,0.15);border-radius:14px;padding:1.2rem;">
-        <div style="margin-bottom:0.5rem;color:white;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="flex-shrink:0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <div style="font-size:2rem;margin-bottom:0.5rem;color:white;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.15em" height="1.15em" style="flex-shrink:0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
         <p style="color:white;font-weight:700;font-size:0.9rem;">1. Mande um WhatsApp</p>
       </div>
       <div style="background:rgba(255,255,255,0.15);border-radius:14px;padding:1.2rem;">
-        <div style="font-size:2rem;margin-bottom:0.5rem;">🍽</div>
+        <div style="font-size:2rem;margin-bottom:0.5rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-prato"/></svg></div>
         <p style="color:white;font-weight:700;font-size:0.9rem;">2. Escolha os pratos</p>
       </div>
       <div style="background:rgba(255,255,255,0.15);border-radius:14px;padding:1.2rem;">
-        <div style="font-size:2rem;margin-bottom:0.5rem;">🌊</div>
+        <div style="font-size:2rem;margin-bottom:0.5rem;"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-onda"/></svg></div>
         <p style="color:white;font-weight:700;font-size:0.9rem;">3. Chegue e aproveite!</p>
       </div>
     </div>
@@ -224,74 +243,52 @@
   </div>
 </section>
 
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Início</a>
-    <a href="cardapio.html">Cardápio</a>
-    <a href="praia-do-barro-vermelho.html">Praia do Barro Vermelho</a>
-    <a href="paulino-neves.html">Paulino Neves</a>
-    <a href="onde-comer-barreirinhas.html">Onde Comer</a>
-    <a href="restaurante-paulino-neves.html">Restaurante Paulino Neves</a>
-    <a href="excursoes.html">Excursões</a>
-    <a href="como-chegar-paulino-neves.html">Como Chegar</a>
-    <a href="index.html#galeria">Galeria</a>
-    <a href="index.html#contato">Contato</a>
-    <a href="index.html#faq">FAQ</a>
-    <a href="https://www.instagram.com/barraca.do.ivan" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://wa.me/5598988126176" target="_blank" rel="noopener">WhatsApp</a>
+</main>
+
+<!-- RODAPÉ -->
+<footer class="rodape" id="contato">
+  <div class="rodape-grid">
+    <div class="rodape-info">
+      <div class="selo" aria-hidden="true">
+        <svg viewBox="0 0 150 150">
+          <defs><path id="circulo" d="M75,75 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"/></defs>
+          <text fill="#0D4A61" font-family="Barlow, sans-serif" font-size="11" font-weight="500" letter-spacing="2"><textPath href="index.html#circulo" textLength="385" lengthAdjust="spacing">BARRACA DO IVAN • PRAIA DO BARRO VERMELHO •</textPath></text>
+        </svg>
+        <picture>
+          <source srcset="Imagens/logo.webp" type="image/webp">
+          <img src="Imagens/logo.jpeg" alt="" width="90" height="90" loading="lazy">
+        </picture>
+      </div>
+      <div>
+        <h2>Informações e Reservas:</h2>
+        <a class="tel" href="https://wa.me/5598988126176" target="_blank" rel="noopener">(98) 98812-6176 <small>pedidos</small></a>
+        <a class="tel" href="https://wa.me/5511969170096" target="_blank" rel="noopener">(11) 96917-0096 <small>excursões</small></a>
+        <address>Praia do Barro Vermelho - Paulino Neves, MA<br>Todos os dias, das 9h às 18h.</address>
+        <div class="redes">
+          <a class="redondo" href="https://wa.me/5598988126176" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-wpp"/></svg></a>
+          <a class="redondo" href="https://www.instagram.com/barraca.do.ivan" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-insta"/></svg></a>
+          <a class="redondo" href="https://maps.app.goo.gl/vjuzgA27zzzx3Y1H8" target="_blank" rel="noopener" aria-label="Google Maps"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-pin"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="rodape-mapa">
+      <iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1sBarraca+do+Ivan+Paulino+Neves+Maranh%C3%A3o!6i15" title="Localização da Barraca do Ivan no mapa" loading="lazy" allowfullscreen></iframe>
+    </div>
   </div>
-  <p>© 2026 <strong>Barraca do Ivan</strong> · Restaurante na Praia do Barro Vermelho · Paulino Neves — MA</p>
-  <p style="margin-top:0.4rem;font-size:0.8rem;opacity:0.65;">Restaurante de frutos do mar · Próximo a Barreirinhas e Lençóis Maranhenses · Atendemos Excursões</p>
+  <div class="rodape-fim">
+    <nav aria-label="Guias">
+      <a href="cardapio.html#cardapio-menu">Cardápio</a>
+      <a href="excursoes.html">Excursões</a>
+      <a href="praia-do-barro-vermelho.html">Praia do Barro Vermelho</a>
+      <a href="paulino-neves.html">Paulino Neves</a>
+      <a href="restaurante-paulino-neves.html">Restaurante em Paulino Neves</a>
+      <a href="onde-comer-barreirinhas.html">Onde Comer</a>
+      <a href="como-chegar-paulino-neves.html">Como Chegar</a>
+    </nav>
+    <p>2026 © Barraca do Ivan. Todos os direitos reservados.</p>
+  </div>
 </footer>
 
-<script>
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-}
-function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox').classList.add('open');
-  document.documentElement.classList.add('sem-rolagem');
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.documentElement.classList.remove('sem-rolagem');
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
-
-// clique em qualquer imagem de conteudo amplia (logo, icones e nav ficam de fora)
-document.addEventListener('click', function(e) {
-  const img = e.target.closest('img');
-  if (!img) return;
-  if (img.id === 'lightbox-img') return;
-  if (img.classList.contains('logo-img')) return;
-  if (img.closest('nav, footer, a, button')) return;
-  openLightbox(img.currentSrc || img.src);
-});
-
-// o nav quebra em varias linhas conforme a largura; mede a altura real
-// para a ancora nao parar escondida atras dele
-const barraNav = document.querySelector('nav');
-if (barraNav) {
-  const medirNav = () => document.documentElement.style.setProperty('--nav-h', (barraNav.offsetHeight + 12) + 'px');
-  medirNav();
-  window.addEventListener('resize', medirNav);
-  window.addEventListener('load', medirNav);
-}
-
-const srEls = document.querySelectorAll('.sr');
-const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (semAnimacao || !('IntersectionObserver' in window)) {
-  srEls.forEach(el => el.classList.add('visible'));
-} else {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, {threshold: 0, rootMargin: '400px 0px'});
-  srEls.forEach(el => obs.observe(el));
-}
-</script>
+<script src="site.js?v=20261028f"></script>
 </body>
 </html>

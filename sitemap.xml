@@ -3,11 +3,11 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://barracadoivan.com/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://barracadoivan.com/Imagens/barraca.png</image:loc>
+      <image:loc>https://barracadoivan.com/Imagens/barraca.jpg</image:loc>
       <image:title>Barraca do Ivan – Restaurante na Praia do Barro Vermelho, Paulino Neves MA</image:title>
       <image:caption>Vista da Barraca do Ivan na Praia do Barro Vermelho, Paulino Neves – Maranhão. Restaurante de frutos do mar próximo a Barreirinhas e Pequenos Lençóis.</image:caption>
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
@@ -19,19 +19,19 @@
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
     </image:image>
     <image:image>
-      <image:loc>https://barracadoivan.com/Imagens/camarao.PNG</image:loc>
+      <image:loc>https://barracadoivan.com/Imagens/camarao.jpg</image:loc>
       <image:title>Camarão fresco – Barraca do Ivan, Praia do Barro Vermelho, Paulino Neves MA</image:title>
       <image:caption>Camarão fresco grelhado servido na Barraca do Ivan. Frutos do mar em Paulino Neves, Maranhão.</image:caption>
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
     </image:image>
     <image:image>
-      <image:loc>https://barracadoivan.com/Imagens/peixefrito.PNG</image:loc>
+      <image:loc>https://barracadoivan.com/Imagens/peixefrito.jpg</image:loc>
       <image:title>Peixe frito na Barraca do Ivan – Restaurante na praia em Paulino Neves MA</image:title>
       <image:caption>Peixe frito da culinária maranhense servido na Barraca do Ivan, Praia do Barro Vermelho.</image:caption>
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
     </image:image>
     <image:image>
-      <image:loc>https://barracadoivan.com/Imagens/carnedesol.PNG</image:loc>
+      <image:loc>https://barracadoivan.com/Imagens/carnedesol.jpg</image:loc>
       <image:title>Carne de sol na Barraca do Ivan – Culinária maranhense na Praia do Barro Vermelho</image:title>
       <image:caption>Carne de sol com acompanhamentos, prato tradicional da culinária nordestina servido na Barraca do Ivan.</image:caption>
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
@@ -52,7 +52,7 @@
 
   <url>
     <loc>https://barracadoivan.com/paulino-neves.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -65,7 +65,7 @@
 
   <url>
     <loc>https://barracadoivan.com/praia-do-barro-vermelho.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -78,7 +78,7 @@
 
   <url>
     <loc>https://barracadoivan.com/cardapio.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -88,7 +88,7 @@
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
     </image:image>
     <image:image>
-      <image:loc>https://barracadoivan.com/Imagens/camarao.PNG</image:loc>
+      <image:loc>https://barracadoivan.com/Imagens/camarao.jpg</image:loc>
       <image:title>Camarão – Barraca do Ivan, Praia do Barro Vermelho</image:title>
       <image:caption>Camarão fresco grelhado, especialidade da Barraca do Ivan em Paulino Neves – MA.</image:caption>
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
@@ -97,11 +97,11 @@
 
   <url>
     <loc>https://barracadoivan.com/excursoes.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://barracadoivan.com/Imagens/barraca.png</image:loc>
+      <image:loc>https://barracadoivan.com/Imagens/barraca.jpg</image:loc>
       <image:title>Excursões para a Praia do Barro Vermelho – Barraca do Ivan</image:title>
       <image:caption>Excursões com almoço na Barraca do Ivan, Praia do Barro Vermelho, Paulino Neves – MA. Atendemos grupos de Barreirinhas e região.</image:caption>
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
@@ -110,11 +110,11 @@
 
   <url>
     <loc>https://barracadoivan.com/restaurante-paulino-neves.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://barracadoivan.com/Imagens/barraca.png</image:loc>
+      <image:loc>https://barracadoivan.com/Imagens/barraca.jpg</image:loc>
       <image:title>Restaurante em Paulino Neves MA – Barraca do Ivan na Praia do Barro Vermelho</image:title>
       <image:caption>O melhor restaurante de Paulino Neves MA: Barraca do Ivan, diretamente na Praia do Barro Vermelho com frutos do mar frescos.</image:caption>
       <image:geo_location>Paulino Neves, Maranhão, Brasil</image:geo_location>
@@ -123,7 +123,7 @@
 
   <url>
     <loc>https://barracadoivan.com/onde-comer-barreirinhas.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -136,7 +136,7 @@
 
   <url>
     <loc>https://barracadoivan.com/como-chegar-paulino-neves.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>

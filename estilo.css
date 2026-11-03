@@ -7,7 +7,6 @@
   --azul: #E5EEF3;          /* fundo das seções (azul-acinzentado claro) */
   --azul-medio: #2A86AD;    /* títulos cursivos (contraste >= 3:1 no branco e no azul-claro) */
   --azul-escuro: #0D4A61;   /* textos (o azul-céu é claro demais para texto branco) */
-  --cinza: #F1F0EE;
   --branco: #FFFFFF;
   --texto: #22313A;
   --cursiva: 'Mr Dafoe', 'Brush Script MT', cursive;
@@ -414,7 +413,6 @@ html.sem-rolagem, html.sem-rolagem body { overflow: hidden; }
   font-size: 16px;
   /* nomes antigos apontando para a paleta azul nova */
   --areia: #E5EEF3;
-  --areia-escura: #C9D9E2;
   --mar: #1A6B8C;
   --mar-claro: #1D6E93;
   --mar-profundo: #0D4A61;
@@ -458,7 +456,6 @@ html.sem-rolagem, html.sem-rolagem body { overflow: hidden; }
 .btn-primary { background: var(--azul-escuro); color: #fff; }
 .btn-wpp { background: #0F7A40; color: #fff; }
 .btn-outline { background: transparent; border-color: currentColor; }
-.btn-insta { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; }
 .btn-excursao {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
   padding: 0.8rem 1.8rem; border-radius: 999px; background: #fff; color: var(--azul-escuro);

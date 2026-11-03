@@ -13,11 +13,27 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 // abas do cardápio (página cardapio.html)
 function switchTab(id, btn) {
+  const painel = document.getElementById('tab-' + id);
+  if (!painel) return;
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
+  painel.classList.add('active');
   btn.classList.add('active');
 }
+
+// sem JS inline no HTML (a Content-Security-Policy bloqueia): os cliques
+// de fechar a foto, ampliar o cardápio e trocar de aba são tratados aqui
+document.addEventListener('click', function(e) {
+  if (e.target.closest('#lightbox')) { closeLightbox(); return; }
+  const ampliar = e.target.closest('[data-ampliar]');
+  if (ampliar) {
+    const img = ampliar.querySelector('img');
+    if (img) openLightbox(img.currentSrc || img.src);
+    return;
+  }
+  const aba = e.target.closest('.tab-btn[data-tab]');
+  if (aba) switchTab(aba.dataset.tab, aba);
+});
 
 // ao arrastar um carrossel com o dedo, alguns celulares disparam um "clique" no fim;
 // guardamos onde o toque comecou para nao abrir a foto ampliada sem querer
@@ -38,12 +54,51 @@ document.addEventListener('click', function(e) {
   openLightbox(img.currentSrc || img.src);
 });
 
-// setas dos carrosseis andam uma "tela" por vez
+// setas dos carrosseis: cada clique leva a proxima (ou anterior) parada exata do
+// encaixe, entao a foto sempre termina centralizada. Cliques rapidos se somam
+// (contam a partir do destino, nao do meio do caminho) e nas pontas a seta volta
+// para o outro lado. Se todas as fotos cabem na tela, as setas somem.
 document.querySelectorAll('.carrossel').forEach(function(c) {
   const trilho = c.querySelector('.trilho');
-  const passo = () => trilho.firstElementChild ? trilho.firstElementChild.offsetWidth + 10 : trilho.clientWidth * 0.8;
-  c.querySelector('.esq').addEventListener('click', () => trilho.scrollBy({ left: -passo(), behavior: 'smooth' }));
-  c.querySelector('.dir').addEventListener('click', () => trilho.scrollBy({ left: passo(), behavior: 'smooth' }));
+  if (!trilho) return;
+  const fotos = Array.from(trilho.children);
+  let paradas = [], alvo = -1, fimTimer;
+
+  const medirParadas = () => {
+    const max = trilho.scrollWidth - trilho.clientWidth;
+    paradas = [];
+    fotos.forEach(f => {
+      const p = Math.round(Math.max(0, Math.min(max, f.offsetLeft - (trilho.clientWidth - f.offsetWidth) / 2)));
+      if (!paradas.length || p - paradas[paradas.length - 1] > 2) paradas.push(p);
+    });
+    c.classList.toggle('cabe', paradas.length < 2);
+  };
+  const maisPerto = () => {
+    let melhor = 0;
+    paradas.forEach((p, i) => { if (Math.abs(p - trilho.scrollLeft) < Math.abs(paradas[melhor] - trilho.scrollLeft)) melhor = i; });
+    return melhor;
+  };
+  const terminar = () => { clearTimeout(fimTimer); trilho.classList.remove('navegando'); alvo = -1; };
+  const ir = sentido => {
+    medirParadas();
+    if (paradas.length < 2) return;
+    const base = alvo >= 0 ? alvo : maisPerto();
+    alvo = (base + sentido + paradas.length) % paradas.length;
+    trilho.classList.add('navegando');
+    trilho.scrollTo({ left: paradas[alvo], behavior: 'smooth' });
+    // o encaixe volta quando a rolagem acaba (scrollend) ou, nos navegadores sem esse evento, apos um tempo
+    clearTimeout(fimTimer);
+    fimTimer = setTimeout(terminar, 900);
+  };
+  trilho.addEventListener('scrollend', () => { if (alvo >= 0 && Math.abs(trilho.scrollLeft - paradas[alvo]) < 2) terminar(); });
+  // se a pessoa encosta no carrossel no meio da animacao, ela assume o controle
+  trilho.addEventListener('pointerdown', terminar, { passive: true });
+  trilho.addEventListener('wheel', terminar, { passive: true });
+
+  c.querySelector('.esq').addEventListener('click', () => ir(-1));
+  c.querySelector('.dir').addEventListener('click', () => ir(1));
+  medirParadas();
+  window.addEventListener('resize', medirParadas, { passive: true });
 });
 
 // menu andando: repete os links ate cobrir a largura e duplica tudo, assim o
@@ -218,7 +273,23 @@ if (heroVideo && (window.matchMedia('(prefers-reduced-motion: reduce)').matches 
   }
 }
 
-const srEls = document.querySelectorAll('.sr');
+// prepara as animacoes de entrada: numera os itens de cada bloco para entrarem em
+// sequencia e, no computador, faz as colunas da esquerda/direita entrarem pelos lados
+document.querySelectorAll('.faixa-fotos, .trilho, .menus, .gallery-grid').forEach(g => g.classList.add('anima-grupo'));
+const ladoALado = window.matchMedia('(min-width: 761px)').matches;
+document.querySelectorAll('.sr, .anima-grupo').forEach(bloco => {
+  const itens = Array.from(bloco.children);
+  const caixa = bloco.getBoundingClientRect();
+  itens.forEach((item, i) => {
+    item.style.setProperty('--i', Math.min(i, 5));
+    if (!ladoALado || !bloco.classList.contains('sr')) return;
+    const r = item.getBoundingClientRect();
+    if (r.width > caixa.width * 0.7) return; // ocupa a largura toda: so sobe
+    item.classList.add(r.left + r.width / 2 < caixa.left + caixa.width / 2 ? 'vem-esq' : 'vem-dir');
+  });
+});
+
+const srEls = document.querySelectorAll('.sr, .anima-grupo');
 const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (semAnimacao || !('IntersectionObserver' in window)) {
   srEls.forEach(el => el.classList.add('visible'));

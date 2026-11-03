@@ -162,6 +162,14 @@ a { color: inherit; }
   overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
   scrollbar-width: none; padding: 0 10px;
 }
+/* position:relative faz o offsetLeft das fotos contar a partir do trilho (usado pelas setas);
+   as margens automáticas centralizam as fotos quando todas cabem na tela */
+.trilho { position: relative; }
+.trilho > :first-child { margin-left: auto; }
+.trilho > :last-child { margin-right: auto; }
+/* enquanto a seta anda, o encaixe fica desligado para não brigar com a rolagem suave */
+.trilho.navegando { scroll-snap-type: none; }
+.carrossel.cabe .seta { display: none; }
 .trilho::-webkit-scrollbar { display: none; }
 .trilho > * { flex: 0 0 auto; width: clamp(220px, 26vw, 330px); height: clamp(280px, 30vw, 340px); scroll-snap-align: center; overflow: hidden; background: #cfdde5; }
 @media (max-width: 560px) {
@@ -170,7 +178,10 @@ a { color: inherit; }
   .trilho > * { width: 72vw; height: min(96vw, 460px); }
 }
 .trilho picture { height: 100%; }
-.trilho img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
+.trilho img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.6s; }
+@media (hover: hover) and (pointer: fine) { .trilho img:hover { transform: scale(1.05); } }
+/* cartões de guia (paulino-neves.html) sobem no hover; o !important vence o style inline */
+.cartao-guia:hover, .cartao-guia:focus-visible { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.13) !important; }
 .seta {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
   width: 46px; height: 46px; border: 0; background: none; color: #fff; cursor: pointer;
@@ -311,10 +322,35 @@ summary::marker { content: ''; }
 .lightbox-close { position: fixed; top: 1rem; right: 1.2rem; font-size: 2.6rem; line-height: 1; color: #fff; background: none; border: 0; cursor: pointer; padding: 0 0.5rem; font-family: inherit; }
 html.sem-rolagem, html.sem-rolagem body { overflow: hidden; }
 
-/* Revelar ao rolar */
-.sr { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.sr.visible { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .sr { opacity: 1; transform: none; transition: none; } }
+/* Revelar ao rolar: cada item do bloco (título, texto, foto, botão) entra um
+   depois do outro, subindo; no computador as colunas laterais entram pelos
+   lados (o JS marca .vem-esq/.vem-dir). Grupos de fotos (.anima-grupo) entram
+   em sequência. A animação só usa o quadro inicial ("backwards"): ao terminar,
+   cada elemento volta ao próprio estilo e os efeitos de hover seguem valendo. */
+@keyframes surgir-cima { from { opacity: 0; transform: translateY(34px); } }
+@keyframes surgir-esq { from { opacity: 0; transform: translateX(-56px); } }
+@keyframes surgir-dir { from { opacity: 0; transform: translateX(56px); } }
+@keyframes surgir-foto { from { opacity: 0; transform: scale(0.92); } }
+@keyframes aproximar { from { transform: scale(1.12); } }
+@media (prefers-reduced-motion: no-preference) {
+  .sr:not(.visible) > *, .anima-grupo:not(.visible) > * { opacity: 0; }
+  .sr.visible > * {
+    animation: surgir-cima 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 0.13s);
+  }
+  .sr.visible > .vem-esq { animation-name: surgir-esq; }
+  .sr.visible > .vem-dir { animation-name: surgir-dir; }
+  .anima-grupo.visible > * {
+    animation: surgir-foto 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 0.1s);
+  }
+  /* topo: título, local e botões entram ao abrir; a foto de capa se aproxima devagar */
+  .hero-conteudo > * { animation: surgir-cima 1s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+  .hero-conteudo > :nth-child(2) { animation-delay: 0.18s; }
+  .hero-conteudo > :nth-child(3) { animation-delay: 0.36s; }
+  .hero-conteudo > :nth-child(n+4) { animation-delay: 0.5s; }
+  .hero-capa { animation: aproximar 7s ease-out; }
+}
 
 /* ══════════════════════════════════════════════
    RESPONSIVO

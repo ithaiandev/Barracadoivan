@@ -1,0 +1,9 @@
+# backups e arquivos locais nao vao para o repositorio nem para o servidor
+*.zip
+*.rar
+*.7z
+*.bak
+node_modules/
+.vscode/
+Thumbs.db
+desktop.ini

@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; frame-src https://www.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cardápio | Barraca do Ivan – Paulino Neves MA</title>
 <meta name="description" content="Cardápio da Barraca do Ivan na Praia do Barro Vermelho, Paulino Neves – MA. Camarão, peixe frito, lagosta, petiscos e bebidas. Peça pelo WhatsApp.">
@@ -69,12 +71,10 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.google-analytics.com">
 <link rel="preload" href="Imagens/refeicoes.webp" as="image" type="image/webp">
 <link rel="preload" href="Imagens/petiscos.webp" as="image" type="image/webp">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=Mr+Dafoe&amp;family=Noto+Serif:wght@600&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=Mr+Dafoe&amp;family=Noto+Serif:wght@600&amp;display=swap"></noscript>
-<link rel="stylesheet" href="estilo.css?v=20261028f">
+<link rel="stylesheet" $1>
+<link rel="stylesheet" href="estilo.css?v=20261102a">
 </head>
 <body class="interna">
 
@@ -94,7 +94,7 @@
 <a class="wpp-float" href="https://wa.me/5598988126176?text=Ol%C3%A1%2C+gostaria+de+agendar+meu+pedido+!" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg class="ico" width="1.1em" height="1.1em"><use href="#i-wpp"/></svg></a>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onclick="closeLightbox()">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
   <button type="button" class="lightbox-close" aria-label="Fechar">&times;</button>
   <img id="lightbox-img" alt="">
 </div>
@@ -150,12 +150,12 @@
     <div class="divider"></div>
 
     <div class="menu-tabs">
-      <button class="tab-btn active" onclick="switchTab('refeicoes', this)"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-prato"/></svg> Refeições</button>
-      <button class="tab-btn" onclick="switchTab('petiscos', this)"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-prato"/></svg> Petiscos & Bebidas</button>
+      <button type="button" class="tab-btn active" data-tab="refeicoes"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-prato"/></svg> Refeições</button>
+      <button type="button" class="tab-btn" data-tab="petiscos"><svg class="emo" width="1.15em" height="1.15em" aria-hidden="true"><use href="#i-prato"/></svg> Petiscos & Bebidas</button>
     </div>
 
     <div class="tab-panel active" id="tab-refeicoes">
-      <button type="button" class="cardapio-img-wrap" aria-label="Ampliar imagem do cardápio" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src)">
+      <button type="button" class="cardapio-img-wrap" aria-label="Ampliar imagem do cardápio" data-ampliar>
         <picture>
           <source srcset="Imagens/refeicoes.webp" type="image/webp">
           <img src="Imagens/refeicoes.jpeg" alt="Cardápio de refeições da Barraca do Ivan – frutos do mar e pratos da culinária maranhense na Praia do Barro Vermelho" loading="eager" width="800" height="600">
@@ -164,7 +164,7 @@
     </div>
 
     <div class="tab-panel" id="tab-petiscos">
-      <button type="button" class="cardapio-img-wrap" aria-label="Ampliar imagem do cardápio" onclick="openLightbox(this.querySelector('img').currentSrc||this.querySelector('img').src)">
+      <button type="button" class="cardapio-img-wrap" aria-label="Ampliar imagem do cardápio" data-ampliar>
         <picture>
           <source srcset="Imagens/petiscos.webp" type="image/webp">
           <img src="Imagens/petiscos.jpeg" alt="Cardápio de petiscos e bebidas geladas da Barraca do Ivan na Praia do Barro Vermelho" loading="eager" width="1000" height="708">
@@ -289,6 +289,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=20261028f"></script>
+<script src="site.js?v=20261102a"></script>
 </body>
 </html>

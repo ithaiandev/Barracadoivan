@@ -1,0 +1,36 @@
+# Barraca do Ivan — configuracao de seguranca para hospedagem Apache/LiteSpeed
+# (hospedagens que nao usam Apache simplesmente ignoram este arquivo)
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # endereco unico: http e www vao direto (num salto so) para https://barracadoivan.com
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://barracadoivan.com%{REQUEST_URI} [L,R=301]
+  # /index.html e a mesma pagina que / (evita conteudo duplicado no Google)
+  RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+  RewriteRule ^index\.html$ https://barracadoivan.com/ [L,R=301]
+  # arquivos ocultos (.git, .htaccess...) nunca sao servidos; .well-known fica
+  # liberado porque a renovacao automatica do SSL (AutoSSL) usa essa pasta
+  RewriteRule (^|/)\.(?!well-known/) - [F]
+</IfModule>
+
+# backups, compactados e arquivos de desenvolvimento nao ficam publicos
+<FilesMatch "\.(zip|rar|7z|tar|gz|bak|old|orig|swp|log|md|sql|env|ini|sh|map)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; frame-src https://www.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+  # navegadores ignoram este cabecalho em HTTP, so vale depois do redirecionamento
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header unset X-Powered-By
+</IfModule>
+ServerSignature Off

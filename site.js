@@ -86,7 +86,7 @@ document.querySelectorAll('.carrossel').forEach(function(c) {
   };
   const terminar = () => {
     clearTimeout(paradoTimer); clearTimeout(segurancaTimer);
-    trilho.classList.remove('navegando'); alvo = -1; atualizarSetas();
+    alvo = -1; atualizarSetas();
   };
   const ir = sentido => {
     medirParadas();
@@ -94,17 +94,18 @@ document.querySelectorAll('.carrossel').forEach(function(c) {
     const novo = Math.max(0, Math.min(paradas.length - 1, base + sentido));
     if (novo === base) return;
     alvo = novo;
-    trilho.classList.add('navegando');
+    // o destino e sempre um ponto exato do encaixe, entao o encaixe do proprio
+    // navegador fica ligado o tempo todo (desligar e religar trava no iPhone)
     trilho.scrollTo({ left: paradas[alvo], behavior: 'smooth' });
     atualizarSetas();
-    // o encaixe so volta quando a rolagem realmente parou (ver o "scroll" abaixo);
     // a seguranca cobre o caso de a rolagem nem comecar
     clearTimeout(segurancaTimer);
     segurancaTimer = setTimeout(terminar, 2500);
   };
   trilho.addEventListener('scroll', () => {
     if (alvo < 0) { clearTimeout(paradoTimer); paradoTimer = setTimeout(atualizarSetas, 120); return; }
-    // a rolagem das setas acabou quando chega no destino ou fica 200ms sem se mexer
+    // a rolagem das setas acabou quando chega no destino ou fica 200ms sem se mexer;
+    // depois disso as setas passam a contar a partir de onde o carrossel esta
     clearTimeout(paradoTimer);
     if (Math.abs(trilho.scrollLeft - paradas[alvo]) < 2) terminar();
     else paradoTimer = setTimeout(terminar, 200);

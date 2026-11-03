@@ -162,13 +162,10 @@ a { color: inherit; }
   overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
   scrollbar-width: none; padding: 0 10px;
 }
-/* position:relative faz o offsetLeft das fotos contar a partir do trilho (usado pelas setas);
-   as margens automáticas centralizam as fotos quando todas cabem na tela */
+/* position:relative faz o offsetLeft das fotos contar a partir do trilho (usado pelas setas) */
 .trilho { position: relative; }
-.trilho > :first-child { margin-left: auto; }
-.trilho > :last-child { margin-right: auto; }
-/* enquanto a seta anda, o encaixe fica desligado para não brigar com a rolagem suave */
-.trilho.navegando { scroll-snap-type: none; }
+/* quando todas as fotos cabem na tela: centraliza e esconde as setas */
+.carrossel.cabe .trilho { justify-content: center; }
 .carrossel.cabe .seta { display: none; }
 .trilho::-webkit-scrollbar { display: none; }
 .trilho > * { flex: 0 0 auto; width: clamp(220px, 26vw, 330px); height: clamp(280px, 30vw, 340px); scroll-snap-align: center; overflow: hidden; background: #cfdde5; }

@@ -18,7 +18,9 @@ Options -Indexes
 </IfModule>
 # reserva caso o mod_rewrite esteja desligado: .git, .env etc. continuam escondidos
 <IfModule !mod_rewrite.c>
-  RedirectMatch 404 (^|/)\.(?!well-known/)
+  <IfModule mod_alias.c>
+    RedirectMatch 404 (^|/)\.(?!well-known/)
+  </IfModule>
 </IfModule>
 
 # backups, compactados e arquivos de desenvolvimento nao ficam publicos

@@ -56,13 +56,14 @@ document.addEventListener('click', function(e) {
 
 // setas dos carrosseis: cada clique leva a proxima (ou anterior) parada exata do
 // encaixe, entao a foto sempre termina centralizada. Cliques rapidos se somam
-// (contam a partir do destino, nao do meio do caminho) e nas pontas a seta volta
-// para o outro lado. Se todas as fotos cabem na tela, as setas somem.
+// (contam a partir do destino, nao do meio do caminho). Na primeira e na ultima
+// foto a seta daquele lado fica apagada; se todas as fotos cabem, as setas somem.
 document.querySelectorAll('.carrossel').forEach(function(c) {
   const trilho = c.querySelector('.trilho');
   if (!trilho) return;
   const fotos = Array.from(trilho.children);
-  let paradas = [], alvo = -1, fimTimer;
+  const esq = c.querySelector('.esq'), dir = c.querySelector('.dir');
+  let paradas = [], alvo = -1, paradoTimer, segurancaTimer;
 
   const medirParadas = () => {
     const max = trilho.scrollWidth - trilho.clientWidth;
@@ -78,27 +79,44 @@ document.querySelectorAll('.carrossel').forEach(function(c) {
     paradas.forEach((p, i) => { if (Math.abs(p - trilho.scrollLeft) < Math.abs(paradas[melhor] - trilho.scrollLeft)) melhor = i; });
     return melhor;
   };
-  const terminar = () => { clearTimeout(fimTimer); trilho.classList.remove('navegando'); alvo = -1; };
+  const atualizarSetas = () => {
+    const i = alvo >= 0 ? alvo : maisPerto();
+    esq.disabled = i <= 0;
+    dir.disabled = i >= paradas.length - 1;
+  };
+  const terminar = () => {
+    clearTimeout(paradoTimer); clearTimeout(segurancaTimer);
+    trilho.classList.remove('navegando'); alvo = -1; atualizarSetas();
+  };
   const ir = sentido => {
     medirParadas();
-    if (paradas.length < 2) return;
     const base = alvo >= 0 ? alvo : maisPerto();
-    alvo = (base + sentido + paradas.length) % paradas.length;
+    const novo = Math.max(0, Math.min(paradas.length - 1, base + sentido));
+    if (novo === base) return;
+    alvo = novo;
     trilho.classList.add('navegando');
     trilho.scrollTo({ left: paradas[alvo], behavior: 'smooth' });
-    // o encaixe volta quando a rolagem acaba (scrollend) ou, nos navegadores sem esse evento, apos um tempo
-    clearTimeout(fimTimer);
-    fimTimer = setTimeout(terminar, 900);
+    atualizarSetas();
+    // o encaixe so volta quando a rolagem realmente parou (ver o "scroll" abaixo);
+    // a seguranca cobre o caso de a rolagem nem comecar
+    clearTimeout(segurancaTimer);
+    segurancaTimer = setTimeout(terminar, 2500);
   };
-  trilho.addEventListener('scrollend', () => { if (alvo >= 0 && Math.abs(trilho.scrollLeft - paradas[alvo]) < 2) terminar(); });
+  trilho.addEventListener('scroll', () => {
+    if (alvo < 0) { clearTimeout(paradoTimer); paradoTimer = setTimeout(atualizarSetas, 120); return; }
+    // a rolagem das setas acabou quando chega no destino ou fica 200ms sem se mexer
+    clearTimeout(paradoTimer);
+    if (Math.abs(trilho.scrollLeft - paradas[alvo]) < 2) terminar();
+    else paradoTimer = setTimeout(terminar, 200);
+  }, { passive: true });
   // se a pessoa encosta no carrossel no meio da animacao, ela assume o controle
-  trilho.addEventListener('pointerdown', terminar, { passive: true });
-  trilho.addEventListener('wheel', terminar, { passive: true });
+  trilho.addEventListener('pointerdown', () => { if (alvo >= 0) terminar(); }, { passive: true });
+  trilho.addEventListener('wheel', () => { if (alvo >= 0) terminar(); }, { passive: true });
 
-  c.querySelector('.esq').addEventListener('click', () => ir(-1));
-  c.querySelector('.dir').addEventListener('click', () => ir(1));
-  medirParadas();
-  window.addEventListener('resize', medirParadas, { passive: true });
+  esq.addEventListener('click', () => ir(-1));
+  dir.addEventListener('click', () => ir(1));
+  medirParadas(); atualizarSetas();
+  window.addEventListener('resize', () => { medirParadas(); atualizarSetas(); }, { passive: true });
 });
 
 // menu andando: repete os links ate cobrir a largura e duplica tudo, assim o

@@ -188,6 +188,8 @@ a { color: inherit; }
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.45));
 }
 .seta .ico { width: 46px; height: 46px; }
+.seta { transition: opacity 0.25s; }
+.seta:disabled { opacity: 0.3; cursor: default; }
 .seta.esq { left: 6px; }
 .seta.dir { right: 6px; }
 

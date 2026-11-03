@@ -16,9 +16,14 @@ Options -Indexes
   # liberado porque a renovacao automatica do SSL (AutoSSL) usa essa pasta
   RewriteRule (^|/)\.(?!well-known/) - [F]
 </IfModule>
+# reserva caso o mod_rewrite esteja desligado: .git, .env etc. continuam escondidos
+<IfModule !mod_rewrite.c>
+  RedirectMatch 404 (^|/)\.(?!well-known/)
+</IfModule>
 
 # backups, compactados e arquivos de desenvolvimento nao ficam publicos
-<FilesMatch "\.(zip|rar|7z|tar|gz|bak|old|orig|swp|log|md|sql|env|ini|sh|map)$">
+# (o "~" no fim pega as copias automaticas de editores, ex.: index.html~)
+<FilesMatch "(\.(zip|rar|7z|tar|gz|tgz|bak|old|orig|tmp|swp|log|md|sql|sqlite|db|env|ini|conf|yml|yaml|sh|ps1|map|psd|ai)|~)$">
   Require all denied
 </FilesMatch>
 
@@ -29,7 +34,9 @@ Options -Indexes
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"
+  # nenhum outro site pode embutir as fotos/videos (evita "roubo" de banda)
+  Header always set Cross-Origin-Resource-Policy "same-site"
   Header always set Cross-Origin-Opener-Policy "same-origin"
   Header unset X-Powered-By
 </IfModule>
